@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block title %}
-<title>Rapid Competitions Login</title>
+<title>Register | Rapid Competitions</title>
 {% endblock title %}
 
 {% block links %}
@@ -12,16 +12,23 @@
 
 {% block content %}
 
+<style>
+
+    .login-right{
+        background-image: url({%static "./img/Section-1.jpg"%})
+    }
+</style>
+
 <div class="container-fluid login-container">
     <div class="row">
         <div class="col-lg-6 col-md-12 login-left">
             <div class="login">
                 <div class="wellcome">
-                    <h2>Wellcome Back</h2>
-                    <p>Wellcome Back! Please enter your details</p>
+                    <h2>Sign Up</h2>
+
                 </div>
                 <div class="login-form">
-                    <form action="/auth/login" method="POST">
+                    <form action="/auth/register" method="POST">
                         {% csrf_token %}
                         <div class="input-section">
                             <label for="email"> 
@@ -34,7 +41,7 @@
                             <label for="password">Password&nbsp; <span>*</span></label>
                             <input type="password" name="password" id="password" placeholder="Enter your Password">
                         </div>
-
+                        <p class="text-start mt-4" style="font-size:14px !important;">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a style="font-size:14px !important; color:black;" href="#">privacy policy.</a> </p>
                         <div
                             class="g-recaptcha"
                             data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
@@ -42,19 +49,12 @@
 
                             </div>
 
-                        <div class="extra-fields">
-                            <div class="checkbox-section">
-                                <input type="checkbox" name="remember_me" id="remember_me">
-                                <label for="remember_me">Remember me</label>
-                            </div>
 
-                            <a href="#">Lost your password?</a>
-                        </div>
-                        <input type="submit" value="Login" class="submit-btn">
+                        <input type="submit" value="Register" class="submit-btn">
 
                     </form>
-                    <button class="social-login google" onclick="location.href='{% url 'social:begin' 'google-oauth2' %}'"><i class="fa-brands fa-google" style="color: #74C0FC;"></i>Sign in with Google</button>
-                    <p class="register-now"> <span>Don't have an account? </span><a href="/auth/register">Sign Up</a></p>
+                    <button class="social-login google" onclick="location.href='{% url 'social:begin' 'google-oauth2' %}'"><i class="fa-brands fa-google" style="color: #74C0FC;"></i>Sign In with Google</button>
+                    <p class="register-now"> <span>Already have an account? </span><a href="/auth/login">Login</a></p>
                     {% if messages %}
                   
                         {% for message in messages %}
