@@ -27,3 +27,7 @@ def winners(request):
 def cart(request):
 
     return render(request, 'cart.html')
+
+def single_product(request):
+
+    return render(request, 'single_product.html')

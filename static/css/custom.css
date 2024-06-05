@@ -57,5 +57,19 @@ li a .nav-link {
     background-color: #ffc107 !important; /* Warning color */
 }
 .pagination .page-item.disabled .page-link {
-    color: #6c757d !important;
+    color: #7e848a !important;
+}
+
+.nav-pills .nav-link {
+    border-radius: 50px;
+    background-color: #ffffff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    border: none !important;
+
+}
+
+.nav-pills .nav-link.active {
+    background-color: #f4f5f7 !important;
+    color: #000000 !important;
 }
