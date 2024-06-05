@@ -1,0 +1,51 @@
+li a .nav-link {
+    color: white;
+}
+
+.custom-card {
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+}
+
+.custom-card img {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.draw-date {
+    position: absolute;
+    bottom: -12px;
+    left: 34%;
+    transform: translateX(-60%);
+    background-color: #fb2019;
+    padding: 6px 22px;
+    border-radius: 6px;
+    color: white;
+    font-size: 13px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+}
+
+.custom-card .card-body {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+}
+
+.sold-percent {
+    font-size: 12px;
+}
+
+.full-width-btn {
+    width: 100%;
+    font-weight: 900;
+}
+
+.full-width-btn:hover {
+    background-color: #d9a131;
+    border: none;
+}
