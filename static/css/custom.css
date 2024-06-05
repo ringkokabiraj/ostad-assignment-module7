@@ -49,3 +49,13 @@ li a .nav-link {
     background-color: #d9a131;
     border: none;
 }
+
+.pagination .page-link {
+    color: #000 !important;
+}
+.pagination .page-link:hover {
+    background-color: #ffc107 !important; /* Warning color */
+}
+.pagination .page-item.disabled .page-link {
+    color: #6c757d !important;
+}

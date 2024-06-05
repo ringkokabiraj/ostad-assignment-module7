@@ -14,3 +14,12 @@ def home(request):
     }
 
     return render(request, 'index.html', context=lottary_data)
+    
+
+def competitions(request):
+
+    return render(request, 'competitions.html')
+
+def winners(request):
+
+    return render(request, 'winners.html')
