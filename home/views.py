@@ -23,3 +23,7 @@ def competitions(request):
 def winners(request):
 
     return render(request, 'winners.html')
+
+def cart(request):
+
+    return render(request, 'cart.html')

@@ -5,4 +5,5 @@ urlpatterns = [
     path('', home, name="Homepage Rendering"),
     path('competitions/', competitions, name="competitions"),
     path('winners/', winners, name="winners"),
+    path('cart/', cart, name="cart"),
 ]
