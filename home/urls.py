@@ -7,4 +7,7 @@ urlpatterns = [
     path('winners/', winners, name="winners"),
     path('cart/', cart, name="cart"),
 
+    path('recent-tickets/', recent_tickets, name="recent_tickets"),
+    path('account-details/', account_details, name="account_details"),
+
 ]

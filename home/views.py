@@ -29,3 +29,10 @@ def cart(request):
 
     return render(request, 'cart.html')
 
+def recent_tickets(request):
+
+    return render(request, 'components/recent-tickets.html')
+
+def account_details(request):
+
+    return render(request, 'components/account-details.html')
