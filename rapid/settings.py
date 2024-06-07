@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'authentication',
     'user',
+    'lottery',
 
     # social djangoServices
     'social_django',

@@ -1,5 +1,6 @@
 {% extends "./partials/base.html" %}
 {% load static %}
+{% load custum_templatetags %}
 {% block title %}
 <title>Rapid Competitions</title>
 {% endblock title %}
@@ -68,11 +69,42 @@
 
     <!-- content start -->
     <div class="container py-5">
-        <div class="row">
-            {%include "./components/lottary.html"%}
+        <div class="row mb-5">
+            <div class="d-flex justify-content-between mb-3">
+                <h2>Ending Soon</h2>
+                <a href="#" class="btn rounded-pill" style="background-color:#ffc107; width:130px;">See All</a>
+            </div>
+            {% for j in catagories%}
+                {% for i in j|give_me_ending_soon_lottery_list %}
+                    {% with lottery=i %}
+                        {%include "./components/lottary.html"%}
+                    {% endwith %}
+                {% endfor %}
+            {% endfor %}
         </div>
+
+        {% for j in catagories %}
+            {% if j|is_category_empty %}
+            {% else %}
+                <div class="row mb-5">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h2>{{j.name}}</h2>
+                        <a href="#" class="btn rounded-pill" style="background-color:#ffc107; width:130px;">See All</a>
+                    </div>
+
+                        {% for i in j.lottery_set.all %}
+                            {% with lottery=i %}
+                                {%include "./components/lottary.html"%}
+                            {% endwith %}
+                        {% endfor %}
+                </div>
+            {% endif %}
+
+        {% endfor %}
     </div>
     <!-- content end -->
+
+
 
 
     {% endblock content %}

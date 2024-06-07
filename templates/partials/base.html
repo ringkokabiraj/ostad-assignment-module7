@@ -77,7 +77,7 @@
                         {% endif %}
 
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Cart</a>
+                            <a class="nav-link text-light" href="/cart/">Cart</a>
                         </li>
                     </ul>
                 </div>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="/cart/">
                         <i class="fa fa-shopping-cart text-light mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge badge-sm rounded-pill bg-warning text-dark">7</span>
                     </a>
@@ -172,6 +172,36 @@
 
 </footer>
 <!-- End Footer -->
+
+
+
+<script>
+    function addToCart(id) {
+        var quantity = document.getElementById(id).value
+        var cart = localStorage.getItem('cart');
+            if (!cart) {
+                cart = [];
+            } else {
+
+                cart = JSON.parse(cart);
+            }
+            var newData = {
+                id: id,
+                quantity: parseInt(quantity)
+            };
+            let found = false
+            cart.forEach(function(item,index){
+                if(item.id == newData.id){
+                    item.quantity+=newData.quantity 
+                    found=true
+                }
+            })
+            if(!found){
+                cart.push(newData);
+            }  
+            localStorage.setItem('cart', JSON.stringify(cart));
+    }
+</script>
 
 <!-- Start Script -->
 <script src="{%static 'js/jquery-1.11.0.min.js' %}"></script>

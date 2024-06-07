@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-
+from lottery.models import Category,Lottery
 
 
 def home(request):
@@ -12,8 +12,9 @@ def home(request):
         "per_entry" : 20,
         "sold" : 75,
     }
-
-    return render(request, 'index.html', context=lottary_data)
+    catagories = Category.objects.all()
+    
+    return render(request, 'index.html', context={'catagories':catagories})
     
 
 def competitions(request):
@@ -28,6 +29,3 @@ def cart(request):
 
     return render(request, 'cart.html')
 
-def single_product(request):
-
-    return render(request, 'single_product.html')
