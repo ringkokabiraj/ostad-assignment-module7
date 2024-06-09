@@ -19,36 +19,12 @@
                         <th>Subtotal</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="product-info d-flex align-items-center">
-                                <button type="button" class="btn btn-lg bg-none"><i class="fas fa-trash-alt"></i></button>
-                                <img src="https://cdn.pristinecompetitions.co.uk/wp-content/uploads/2024/05/5k-for-15p-768x768.jpg" alt="Product Image" class="img-fluid" style="width: 70px; height: 70px; margin-right: 20px; margin-left: 20px;"> 
-                                <div class="">
-                                    <a class="mb-0 h4 text-dark" href="#">Wednesdays £5,000 for 15p</a>
-                                    <p>
-                                        <small class="text-muted text-small">Qty Of Tickets: 200</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        
-                        
-                        <td> 
-                            <div class="input-group" style="border: 1px solid #dee2e6; border-radius: .25rem;">
-                                <button class="btn o-btn-outline-quantity button-minus" type="button"><span class="fa fa-minus"></span></button>
-                                <input type="number" id="quantity_665f72153bcb8" class="input-text qty text form-control text-center" name="quantity" value="1" title="Qty" size="4" min="0" max="" step="1" placeholder="" inputmode="numeric" autocomplete="off" data-product_id="3838865">
-                                <button class="btn o-btn-outline-quantity button-plus" type="button"><span class="fa fa-plus"></span></button>
-                            </div>
-                        </td>
-                        <td>£0.15</td> 
-                        <td>£0.30</td>
-                    </tr>
+                <tbody id='product-tbody'>
+
                 </tbody>
             </table>
             <div class="bg-white text-end py-2">
-                <button type="submit" class="btn btn-outline-dark rounded-pill font-weight-bold" name="update_cart" value="Update cart">Update cart</button>
+                
                 <input type="hidden" id="woocommerce-cart-nonce" name="woocommerce-cart-nonce" value="2593014ac1">
                 <input type="hidden" name="_wp_http_referer" value="/cart/">
             </div>
@@ -61,7 +37,7 @@
             <div class="cart_totals">
                 <h6 class="mb-4">Order Summary</h6>
                 <div class="p-3 rounded-3 mb-3" style="background-color: #f3efe8;">
-                    <small class="mb-0">Note: Ticket numbers will be reserved for 10 minutes. After that someone else could reserve or buy the tickets!</small>
+                    <small class="mb-0">Note: Ticket numbers will be booked After You make your payment.</small>
                 </div>
                 <div class="cart-coupon coupon bg-white rounded-2">
                     <form class="border-top woocommerce-coupon-form p-3" action="" method="post">
@@ -96,4 +72,7 @@
 
     </div>
   </div>
+
+
+  
   

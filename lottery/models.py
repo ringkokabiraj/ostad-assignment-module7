@@ -12,6 +12,10 @@ class Category(models.Model):
 
 
 class Lottery(models.Model):
+    class Meta:
+        verbose_name = "Competition"
+        verbose_name_plural = "Competitions"
+
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to="Lottery/")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True,blank=True)
@@ -25,6 +29,10 @@ class Lottery(models.Model):
         return self.name
     
 class LotteryImage(models.Model):
+    class Meta:
+        verbose_name = "CompetitionImage"
+        verbose_name_plural = "CompetitionImages"
+        
     lottery = models.ForeignKey(Lottery,on_delete=models.CASCADE)
     image = models.ImageField(upload_to="Lottery/")
 
