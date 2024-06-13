@@ -103,16 +103,16 @@
   <div class="row mb-5">
     <div class="d-flex justify-content-between mb-3">
       <h2>Ending Soon</h2>
-      <a
-        href="#"
+      {% comment %} <a
+        href="/lottery/get_category/{{j.id}}/"
         class="btn rounded-pill"
         style="background-color: #ffc107; width: 130px"
         >See All</a
-      >
+      > {% endcomment %}
     </div>
     {% for j in catagories%}
     {% for i in j|give_me_ending_soon_lottery_list%}
-        {% with lottery=i %}
+        {% with lottery=i x=0 %}
             {%include "./components/lottary.html"%}
         {% endwith %}
     {% endfor %}
@@ -124,7 +124,7 @@
     <div class="d-flex justify-content-between mb-3">
       <h2>{{j.name}}</h2>
       <a
-        href="#"
+        href="/lottery/get_category/{{j.id}}/"
         class="btn rounded-pill"
         style="background-color: #ffc107; width: 130px"
         >See All</a
@@ -132,7 +132,7 @@
     </div>
 
     {% for i in j.lottery_set.all %} 
-    {% with lottery=i %} 
+    {% with lottery=i x=1 %} 
     {%include "./components/lottary.html"%} 
     {% endwith %} 
     {% endfor %}
@@ -142,13 +142,22 @@
 <!-- content end -->
 
 <script>
-  var storedItem = localStorage.getItem("cart");
-  storedItem = storedItem ? JSON.parse(storedItem) : [];
-  var length = 0;
-  storedItem.forEach(function(item,index){
-    length+=parseInt(item.quantity)
-  })
-  console.log(length)
-</script> 
+  function handle_plus(id){
+      quantity_field = document.getElementById(`quantity_${id}`);
+      value = parseInt(quantity_field.value);
+      value++;
+
+      quantity_field.value = value;
+  }
+  function handle_minus(id){
+
+      quantity_field = document.getElementById(`quantity_${id}`);
+      value = parseInt(quantity_field.value);
+      if(value>=2){
+          value--;
+      }
+      quantity_field.value = value;
+  }
+</script>
 
 {% endblock content %}

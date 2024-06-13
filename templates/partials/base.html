@@ -83,7 +83,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="/">
                 <img src='{%static "./img/logo.png"%}' class="img-fluid" style="height: auto; width: 10rem;" alt="" srcset="">
             </a>
 
@@ -102,9 +102,11 @@
                                 All Competitions
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Competition 1</a></li>
-                                <li><a class="dropdown-item" href="#">Competition 2</a></li>
-                                <li><a class="dropdown-item" href="#">Competition 3</a></li>
+                                {% for i in catagories %}
+                                <li><a class="dropdown-item" href="/lottery/get_category/{{i.id}}/">{{i.name}}</a></li>
+                                {% endfor %}
+
+
                             </ul>
                         </li>                        
                         <li class="nav-item">
@@ -239,7 +241,7 @@
 
 <script>
     function addToCart(id) {
-        var quantity = document.getElementById(id).value
+        var quantity = document.getElementById(`quantity_${id}`).value
         var cart = localStorage.getItem('cart');
             if (!cart) {
                 cart = [];

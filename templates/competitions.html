@@ -1,6 +1,7 @@
 {% extends "./partials/base.html" %}
 {% load static %}
 {% block title %}
+{% load custum_templatetags %}
 <title>Rapid Competitions</title>
 {% endblock title %}
 
@@ -31,7 +32,9 @@
     <!-- content start -->
     <div class="container py-5">
         <div class="row">
+            {% with i=category %}
             {%include "./components/competitions.html"%}
+            {% endwith %}
         </div>
         <!-- Pagination Controls -->
         <div class="row">

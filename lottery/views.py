@@ -1,10 +1,12 @@
-from django.shortcuts import render,redirect
 from django.core.exceptions import ObjectDoesNotExist
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.shortcuts import redirect, render
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import Category, Lottery
 from .serializers import LotterySerializer
+
 
 def view_lottery(request,pk):
 
@@ -14,6 +16,16 @@ def view_lottery(request,pk):
         return redirect('/')
     
     return render(request,'single_product.html', context={'lottery':lottery})
+
+
+
+
+def single_lottery_view(request,pk):
+    try:
+        category = Category.objects.get(id=pk)
+    except(ObjectDoesNotExist):
+        return redirect('/')
+    return render(request,'competitions.html',context={'category':category})
 
 
 

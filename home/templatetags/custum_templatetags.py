@@ -18,6 +18,10 @@ def is_category_empty(value):
 def give_me_ending_soon_lottery_list(instance):
     three_days_after = timezone.now() + timedelta(days=3)
     return instance.lottery_set.filter(draw_in__gte=timezone.now(), draw_in__lte = three_days_after).order_by('draw_in')
+
+@register.filter
+def give_me_all_lottery_of_a_category(instance):
+    return instance.lottery_set.all().order_by('draw_in')
     
 @register.filter
 def perform_subtract(value1,value2):
