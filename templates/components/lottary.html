@@ -9,8 +9,9 @@
         </div>
         <div class="card-body p-3">
             <h6 class="card-title mt-2"><a class="card-title" href="/lottery/lottery/{{lottery.id}}/">{{lottery.name}}</a></h6>
+            {% if lottery.cash_alternative %}
             <p class="mt-2"><span style="font-size: 13px;">Cash alternative:</span> <span style="color: #b88c33; font-weight: bold !important;">£{{lottery.cash_alternative}}</span></p>
-            
+            {% endif %}
             <div class="input-group mt-2" style="border: 1px solid #dee2e6; border-radius: .25rem;">
                 <button class="btn o-btn-outline-quantity button-minus" type="button" onclick="handle_minus({{lottery.id}})"><span class="fa fa-minus"></span></button>
                 <input type="number" id="quantity_{{lottery.id}}" class="input-text qty text form-control text-center" name="quantity" value="1" title="Qty" size="4" min="0" max="" step="1" placeholder="" inputmode="numeric" autocomplete="off" data-product_id="3838865">

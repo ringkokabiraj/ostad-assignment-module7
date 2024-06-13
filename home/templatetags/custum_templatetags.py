@@ -3,6 +3,8 @@ from datetime import timedelta
 from django import template
 from django.utils import timezone
 
+from lottery.models import Category
+
 register = template.Library()
 
 
@@ -30,3 +32,8 @@ def perform_subtract(value1,value2):
 @register.filter
 def perform_percentage(value, total):
     return int((100*value)/total)
+
+@register.filter
+
+def get_all_category(value):
+    return Category.objects.all()

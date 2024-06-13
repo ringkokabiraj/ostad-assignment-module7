@@ -2,7 +2,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+    {% load custum_templatetags %}
 <head>
 
     {% block title %}
@@ -102,7 +102,7 @@
                                 All Competitions
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                {% for i in catagories %}
+                                {% for i in 1|get_all_category %}
                                 <li><a class="dropdown-item" href="/lottery/get_category/{{i.id}}/">{{i.name}}</a></li>
                                 {% endfor %}
 
