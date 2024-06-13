@@ -1,7 +1,6 @@
 from django.contrib import admin
+
 from .models import Category, Lottery, LotteryImage
-
-
 
 
 class LotteryImageInline(admin.TabularInline):
@@ -12,7 +11,10 @@ class LotteryImageInline(admin.TabularInline):
 # Custom admin class for the Course model
 class LotteryAdmin(admin.ModelAdmin):
     inlines = [LotteryImageInline]
-    list_display = ('name', 'draw_in', 'price', 'total_sold','id')
+    list_display = ('name', 'draw_in', 'price', 'total_sold','total_remaining','id','category')
+
+    def total_remaining(self,obj):
+        return obj.total_available_ticket - obj.total_sold
 
 
 
