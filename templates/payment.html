@@ -1,0 +1,10 @@
+{% extends "./partials/base.html" %} {% load static %} {% block title %}
+<title>Please Make Your Payment</title>
+{% endblock title %} {% block links %} {% endblock links %} {% block content %}
+
+<h1>Orderd Item List And Payment Page</h1>
+
+<script>
+  localStorage.removeItem("cart");
+</script>
+{% endblock content %}
