@@ -1,5 +1,6 @@
-from django.shortcuts import render,redirect
-from lottery.models import Category,Lottery
+from django.shortcuts import redirect, render
+
+from lottery.models import Category, Lottery
 
 
 def home(request):
@@ -17,22 +18,15 @@ def home(request):
     return render(request, 'index.html', context={'catagories':catagories})
     
 
-def competitions(request):
 
-    return render(request, 'competitions.html')
 
 def winners(request):
 
     return render(request, 'winners.html')
 
-def cart(request):
 
-    return render(request, 'cart.html')
 
 def recent_tickets(request):
 
     return render(request, 'components/recent-tickets.html')
 
-def account_details(request):
-
-    return render(request, 'components/account-details.html')

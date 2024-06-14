@@ -120,7 +120,7 @@
                             <a class="nav-link text-light" href="/auth/logout">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">My Account</a>
+                            <a class="nav-link text-light" href="/auth/user/">My Account</a>
                         </li>
                         {%else%}
                         <li class="nav-item">
@@ -146,7 +146,7 @@
                         <i class="fa fa-shopping-cart text-light mr-1"></i>
                         <span id="cart_quantity" class="position-absolute top-0 left-100 translate-middle badge badge-sm rounded-pill bg-warning text-dark">7</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="/auth/user/">
                         <i class="far fa-user text-light mr-3"></i>
                     </a>
                 </div>
@@ -159,6 +159,7 @@
 
 
     <script>
+        function cart_update(){
         var storedItem = localStorage.getItem("cart");
         storedItem = storedItem ? JSON.parse(storedItem) : [];
         var length = 0;
@@ -168,6 +169,8 @@
         console.log(length)
         var quantity_view = document.getElementById("cart_quantity");
         quantity_view.textContent = length;
+    }
+    cart_update();
       </script> 
 
     {% block content %}
@@ -264,7 +267,8 @@
                 cart.push(newData);
             }  
             localStorage.setItem('cart', JSON.stringify(cart));
-            showNotification()
+            showNotification();
+            cart_update();
     }
     function showNotification() {
         var notification = document.getElementById('notification');

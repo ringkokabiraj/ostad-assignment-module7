@@ -11,7 +11,37 @@
 
 
 {% block content %}
+<script>
+    function addToCartSingle(id) {
+        var quantity = document.getElementById(`quantity_${id}`).textContent;
+        console.log(quantity);
 
+        var cart = localStorage.getItem('cart');
+            if (!cart) {
+                cart = [];
+            } else {
+
+                cart = JSON.parse(cart);
+            }
+            var newData = {
+                id: id,
+                quantity: parseInt(quantity)
+            };
+            let found = false
+            cart.forEach(function(item,index){
+                if(item.id == newData.id){
+                    item.quantity+=newData.quantity 
+                    found=true
+                }
+            })
+            if(!found){
+                cart.push(newData);
+            }  
+            localStorage.setItem('cart', JSON.stringify(cart));
+            showNotification();
+            cart_update();
+    }
+  </script>
     <!-- Modal -->
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -112,24 +142,24 @@
                                     <div class="tab-content" id="entryTabsContent">
                                         <div class="tab-pane text-center fade show active" id="online-entry" role="tabpanel" aria-labelledby="online-entry-tab">
                                             <h3 class="h5 mb-5 mt-3" style="font-weight: bold;">How Many Tickets?</h3>
-                                            <form action="" method="GET">
+                                            {% comment %} <form action="#" method="GET"> {% endcomment %}
                                                 <input type="hidden" name="product-title" value="Activewear">
                                                 <div class="row align-items-right mt-4">
                                                     <div class="col-4 text-left">
-                                                        <span class="btn btn-outline-secondary" id="btn-minus">-</span>
+                                                        <span class="btn btn-outline-secondary" id="btn-minus" onclick="handle_minus({{lottery.id}})">-</span>
                                                     </div>
                                                     <div class="col-4 text-center">
                                                         <ul class="list-inline">
-                                                            <li class="list-inline-item">Number of Tickets <span style="margin-left: 10px; font-size: 20px;" id="var-value">1</span></li>
+                                                            <li class="list-inline-item">Number of Tickets <span id="quantity_{{lottery.id}}" style="margin-left: 10px; font-size: 20px;" id="var-value">1</span></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-4 text-center">
-                                                        <span class="btn btn-outline-secondary" id="btn-plus">+</span>
+                                                        <span class="btn btn-outline-secondary" id="btn-plus" onclick="handle_plus({{lottery.id}})">+</span>
                                                     </div>
                                                 </div>
                                                 <div class="row pb-3 justify-content-center">
                                                     <div class="col d-grid mt-3">
-                                                        <button type="submit" class="btn btn-warning rounded-pill btn-lg" name="submit" value="addtocard">
+                                                        <button class="btn btn-warning rounded-pill btn-lg" onclick="addToCartSingle({{lottery.id}})">
                                                             Add To Basket
                                                             <i class="fa fa-shopping-bag text-dark ml-5"></i>
                                                         </button>
@@ -143,7 +173,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            {% comment %} </form> {% endcomment %}
                                         </div>
 
                                         <div class="tab-pane fade" id="postal-entry" role="tabpanel" aria-labelledby="postal-entry-tab">
@@ -239,6 +269,25 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function handle_plus(id){
+            quantity_field = document.getElementById(`quantity_${id}`);
+            value = parseInt(quantity_field.textContent);
+            value++;
+      
+            quantity_field.textContent = value;
+        }
+        function handle_minus(id){
+      
+            quantity_field = document.getElementById(`quantity_${id}`);
+            value = parseInt(quantity_field.textContent);
+            if(value>=2){
+                value--;
+            }
+            quantity_field.textContent = value;
+        }
+      </script>
 
 
     {% endblock content %}

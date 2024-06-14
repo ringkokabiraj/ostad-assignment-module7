@@ -15,10 +15,15 @@ class Lottery(models.Model):
         verbose_name = "Competition"
         verbose_name_plural = "Competitions"
 
+    CASH_ALTERNATIVE_STATUS = [
+        ("YES", "Yes"),
+        ("NO", "NO"),
+
+    ]
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to="Competition/")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True,blank=True)
-    have_any_cash_alternative = models.BooleanField(default=False)
+    have_any_cash_alternative = models.CharField(max_length=80, choices=CASH_ALTERNATIVE_STATUS, default="NO")
     cash_alternative = models.IntegerField(null=True,blank=True)
     draw_in = models.DateTimeField()
     price = models.DecimalField(decimal_places = 2, max_digits=10)

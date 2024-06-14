@@ -1,4 +1,4 @@
-{% extends "./partials/base.html" %}
+{% extends "partials/base.html" %}
 {% load static %}
 {% block title %}
 <title>Rapid Competitions</title>
@@ -69,6 +69,12 @@
             <div class="position-sticky p-1">
                 <ul class="nav flex-column" id="portal_menu">
                     <li class="nav-item active">
+                        <a class="nav-link" href="/auth/user/">
+                            <i class="fas fa-user" style="color: #c5942d; margin-right: 15px;"></i>
+                            Account Details
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="recent-tickets.html">
                             <i class="fas fa-ticket-alt" style="color: #c5942d; margin-right: 15px;"></i>
                             Recent Tickets
@@ -98,12 +104,7 @@
                             My Wallet
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="account-details.html">
-                            <i class="fas fa-user" style="color: #c5942d; margin-right: 15px;"></i>
-                            Account Details
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="responsible-gaming.html">
                             <i class="fas fa-shield-alt" style="color: #c5942d; margin-right: 15px;"></i>

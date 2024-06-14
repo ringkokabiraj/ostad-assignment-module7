@@ -1,8 +1,13 @@
 import json
 
+import stripe
+from django.conf import settings
 from django.shortcuts import redirect, render
 
 from .models import *
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+from django.http import JsonResponse
 
 
 def checkout_view(request):
@@ -34,6 +39,70 @@ def checkout_view(request):
         if 'emailUpdates' in data:
             if data['emailUpdates'] == 'on':
                 order.sign_me_up = True
-    return render(request, 'payment.html')
+    return render(request, 'payment.html',context={'order':order})
+
+
+
 
     
+def payment_view(request,pk):
+    if request.method=='POST':
+        try:
+            order = Order.objects.get(id=pk)
+        except:
+            return redirect('/checkout/')
+        inline_items = []
+        YOUR_DOMAIN = 'http://localhost:8000'
+        for i in order.orderitem_set.all():
+            print(i.product.price)
+            print(i.product.image.url)
+            print(f'{YOUR_DOMAIN+str(i.product.image.url)}')
+            item ={
+             'price_data':{
+                    'currency': 'usd',
+                    
+                    'unit_amount_decimal': (i.product.price *100),
+                    'product_data': {
+                        'name':i.product.name,
+                        'images': [f'{YOUR_DOMAIN+str(i.product.image.url)}']
+                    },
+                },
+                'quantity': i.quantity,
+            }
+            print(type(item))
+            inline_items.append(item)
+        print(inline_items)
+        
+        checkout_session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=inline_items,
+
+        mode='payment',
+        success_url=YOUR_DOMAIN + f'/checkout/success/{pk}/',
+        cancel_url=YOUR_DOMAIN + f'/checkout/cancel/{pk}/',
+        )
+        return redirect(checkout_session.url, code=303)
+    
+
+def success_view(request,pk):
+    try:
+        order = Order.objects.get(id=pk)
+    except:
+        return redirect('/')
+    order.payment_status = True
+    order.save()
+    for i in order.orderitem_set.all():
+        i.product.total_sold = i.product.total_sold + i.quantity
+        i.save()
+    return render(request,'success.html', context={'order':order})
+
+
+def cancel_view(request,pk):
+    try:
+        order = Order.objects.get(id=pk)
+    except:
+        return redirect('/')
+    order.payment_status = False
+    order.save()
+
+    return render(request,'cancel.html', context={'order':order})

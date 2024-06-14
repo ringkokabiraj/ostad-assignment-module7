@@ -56,6 +56,7 @@
                 }
 
             }
+            cart_update();
         }
         function handle_plus(id){
             var storedItem = localStorage.getItem('cart');          
@@ -72,6 +73,7 @@
 
             quantity_field.value = value;
             quantityOnChangeHandler(id);
+            cart_update();
         }
         function handle_minus(id){
             var storedItem = localStorage.getItem('cart');          
@@ -94,12 +96,14 @@
 
             quantity_field.value = value;
             quantityOnChangeHandler(id);
+            cart_update();
         }
         function quantityOnChangeHandler(id){
             var price = document.getElementById(`td_price${id}`);
             var subtotal = document.getElementById(`td_subtotal${id}`);
             var quantity = document.getElementById(`quantity_${id}`);
             subtotal.textContent = `${parseFloat(price.textContent)*parseInt(quantity.value)}`;
+            
         }
         function quantityOnChangeHandler2(id) {
             var storedItem = localStorage.getItem('cart');    
@@ -120,7 +124,7 @@
                 
             }
 
-            
+            cart_update();
         }
         function add_new_row(data) {
         const tbody = document.getElementById('product-tbody');
