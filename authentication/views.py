@@ -87,3 +87,9 @@ def logout_view(request):
 
     logout(request)
     return redirect('/')
+
+
+# def recent_tickets(request):
+#     context = 
+
+#     return render(request, 'components/recent-tickets.html')
