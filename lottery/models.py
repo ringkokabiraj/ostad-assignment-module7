@@ -1,5 +1,7 @@
 from django.db import models
 
+from authentication.models import User
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -20,6 +22,10 @@ class Lottery(models.Model):
         ("NO", "NO"),
 
     ]
+    DRAW_BY = [
+        ("MANUAL", "Manual"),
+        ("AUTO", "Auto"),
+    ]
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to="Competition/")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True,blank=True)
@@ -30,6 +36,8 @@ class Lottery(models.Model):
     total_available_ticket = models.IntegerField()
     total_sold = models.IntegerField(default=0)
     max_entries_per_user = models.IntegerField(default=1)
+    draw_by = models.CharField(max_length=20, choices=DRAW_BY, default="AUTO")
+    has_perform_draw = models.BooleanField(default=False)
     def __str__(self) -> str:
         return self.name
     
@@ -43,3 +51,5 @@ class LotteryImage(models.Model):
 
     def __str__(self):
         return self.lottery.name
+
+

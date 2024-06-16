@@ -13,3 +13,5 @@ class OrderModelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order,OrderModelAdmin)
+admin.site.register(Winner)
+admin.site.register(LotteryTicket)

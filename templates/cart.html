@@ -40,6 +40,7 @@
 
 
     <script>
+
         function handle_delete(id) {
             var storedItem = localStorage.getItem('cart');          
             storedItem =  storedItem ? JSON.parse(storedItem) : null;
@@ -57,6 +58,7 @@
 
             }
             cart_update();
+            update_subtotal();
         }
         function handle_plus(id){
             var storedItem = localStorage.getItem('cart');          
@@ -74,6 +76,7 @@
             quantity_field.value = value;
             quantityOnChangeHandler(id);
             cart_update();
+            update_subtotal();
         }
         function handle_minus(id){
             var storedItem = localStorage.getItem('cart');          
@@ -97,12 +100,14 @@
             quantity_field.value = value;
             quantityOnChangeHandler(id);
             cart_update();
+            update_subtotal()
         }
         function quantityOnChangeHandler(id){
             var price = document.getElementById(`td_price${id}`);
             var subtotal = document.getElementById(`td_subtotal${id}`);
             var quantity = document.getElementById(`quantity_${id}`);
-            subtotal.textContent = `${parseFloat(price.textContent)*parseInt(quantity.value)}`;
+            var total = parseFloat(price.textContent)*parseInt(quantity.value);
+            subtotal.textContent = `${total.toFixed(2)}`;
             
         }
         function quantityOnChangeHandler2(id) {
@@ -125,6 +130,7 @@
             }
 
             cart_update();
+            update_subtotal()
         }
         function add_new_row(data) {
         const tbody = document.getElementById('product-tbody');
@@ -153,7 +159,7 @@
                             </div>
                         </td>
                         <td>£<span id="td_price${data.id}">${data.price}</span></td> 
-                        <td>£<span id="td_subtotal${data.id}">${data.price*data.quantity}</span></td>
+                        <td>£<span id="td_subtotal${data.id}">${(data.price*data.quantity).toFixed(2)}</span></td>
         `;
 
 
@@ -170,10 +176,24 @@
         return storedItem;
 
     }
+
     function getCookie(name) {
         const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
         return cookieValue ? cookieValue.pop() : '';
     }
+    function update_subtotal(){
+        var subtotal = document.getElementById("subtotal");
+        var total_value = document.getElementById("total");
+        var storedItem = getCartFromLocalStorage();
+        var total = 0;
+        storedItem.forEach(function(item,index){
+            total+= (parseInt(item.quantity) * parseFloat(item.price))
+        })
+        total_value.textContent = total.toFixed(2);
+        subtotal.textContent = total.toFixed(2);
+    }
+
+    update_subtotal();
 
     function loadCartDataById(){
 

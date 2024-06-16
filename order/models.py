@@ -32,3 +32,16 @@ class OrderItem(models.Model):
 
     def __str__(self) -> str:
         return f'OrderId : {self.order.id} ItemId : {self.id}'
+    
+
+class LotteryTicket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lottery = models.ForeignKey(Lottery,on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+
+
+class Winner(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lottery = models.ForeignKey(Lottery, on_delete=models.CASCADE)
+    ticket = models.ForeignKey(LotteryTicket, on_delete=models.CASCADE, null=True, blank=True)
+    winner_photo = models.ImageField(upload_to='Winners/', null=True,blank=True)

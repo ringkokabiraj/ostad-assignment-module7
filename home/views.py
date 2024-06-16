@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 
 from lottery.models import Category, Lottery
+from order.models import Winner
 
 
 def home(request):
@@ -20,9 +21,10 @@ def home(request):
 
 
 
-def winners(request):
+def winners_view(request):
 
-    return render(request, 'winners.html')
+    winners = Winner.objects.all().order_by('-id')
+    return render(request, 'winners.html', context={'winners':winners})
 
 
 

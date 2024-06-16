@@ -5,7 +5,7 @@ from .views import *
 
 urlpatterns = [
     path('', home, name="Homepage Rendering"),
-    path('winners/', winners, name="winners"),
+    path('winners/', winners_view, name="winners"),
 
     path('recent-tickets/', recent_tickets, name="recent_tickets"),
 

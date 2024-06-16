@@ -20,4 +20,5 @@ class LotteryAdmin(admin.ModelAdmin):
 
 admin.site.register(Category)
 admin.site.register(Lottery, LotteryAdmin)
+
 # Register your models here.

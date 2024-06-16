@@ -2,130 +2,40 @@
     Winners
 </h1>
 
+
+{% for i in winner %}
 <div class="col-md-3 mb-4">
     <div class="card custom-card shadow">
         <div class="position-relative">
-            <img class="card-img-top" src="https://cdn.pristinecompetitions.co.uk/wp-content/uploads/2024/05/WebImage_BlackChaser-768x768.jpg" alt="image">
+            {% if i.winner_photo %}
+            <img class="card-img-top" src="{{i.winner_photo.url}}" alt="image">
+            {% endif %}
         </div>
         <div class="card-body p-3">
-            <h6 class="card-title mt-2">Lottery Name</h6>
+            <h6 class="card-title mt-2">{{i.lottery.name}}</h6>
             
 
             <div>
                 <h5 class="mt-3"><span class="sold-percent">Winner</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">Steven Sunderland</h6>
+                <h6 style="font-weight: bold; line-height: .5;">{{i.user.first_name}} {{i.user.last_name}}</h6>
             </div>
 
             <div>
                 <h5 class="mt-3"><span class="sold-percent">Location</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">Co.Kildare</h6>
+                <h6 style="font-weight: bold; line-height: .5;">{{i.ticket.order.town}}</h6>
             </div>
 
             <div>
                 <h5 class="mt-3"><span class="sold-percent">Winning Number</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">922</h6>
+                <h6 style="font-weight: bold; line-height: .5;">{{i.ticket.id}}</h6>
             </div>
             
 
-            <a class="btn btn-sm btn-outline-dark mt-2 rounded-pill full-width-btn mt-3" style="font-weight: bold;" href="#">
+            <a class="btn btn-sm btn-outline-dark mt-2 rounded-pill full-width-btn mt-3" style="font-weight: bold;" href="/lottery/lottery/{{i.lottery.id}}/">
                 View Competetion
             </a>
         </div>
     </div>
 </div>
 
-<div class="col-md-3 mb-4">
-    <div class="card custom-card shadow">
-        <div class="position-relative">
-            <img class="card-img-top" src="https://cdn.pristinecompetitions.co.uk/wp-content/uploads/2024/05/WebImage_BlackChaser-768x768.jpg" alt="image">
-        </div>
-        <div class="card-body p-3">
-            <h6 class="card-title mt-2">Lottery Name</h6>
-            
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Winner</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">Steven Sunderland</h6>
-            </div>
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Location</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">Co.Kildare</h6>
-            </div>
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Winning Number</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">922</h6>
-            </div>
-            
-
-            <a class="btn btn-sm btn-outline-dark mt-2 rounded-pill full-width-btn mt-3" style="font-weight: bold;" href="#">
-                View Competetion
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="col-md-3 mb-4">
-    <div class="card custom-card shadow">
-        <div class="position-relative">
-            <img class="card-img-top" src="https://cdn.pristinecompetitions.co.uk/wp-content/uploads/2024/05/WebImage_BlackChaser-768x768.jpg" alt="image">
-        </div>
-        <div class="card-body p-3">
-            <h6 class="card-title mt-2">Lottery Name</h6>
-            
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Winner</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">Steven Sunderland</h6>
-            </div>
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Location</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">Co.Kildare</h6>
-            </div>
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Winning Number</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">922</h6>
-            </div>
-            
-
-            <a class="btn btn-sm btn-outline-dark mt-2 rounded-pill full-width-btn mt-3" style="font-weight: bold;" href="#">
-                View Competetion
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="col-md-3 mb-4">
-    <div class="card custom-card shadow">
-        <div class="position-relative">
-            <img class="card-img-top" src="https://cdn.pristinecompetitions.co.uk/wp-content/uploads/2024/05/WebImage_BlackChaser-768x768.jpg" alt="image">
-        </div>
-        <div class="card-body p-3">
-            <h6 class="card-title mt-2">Lottery Name</h6>
-            
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Winner</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">Steven Sunderland</h6>
-            </div>
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Location</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">Co.Kildare</h6>
-            </div>
-
-            <div>
-                <h5 class="mt-3"><span class="sold-percent">Winning Number</span></h5>
-                <h6 style="font-weight: bold; line-height: .5;">922</h6>
-            </div>
-            
-
-            <a class="btn btn-sm btn-outline-dark mt-2 rounded-pill full-width-btn mt-3" style="font-weight: bold;" href="#">
-                View Competetion
-            </a>
-        </div>
-    </div>
-</div>
+{% endfor %}

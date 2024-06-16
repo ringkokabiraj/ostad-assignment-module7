@@ -110,7 +110,7 @@
                             </ul>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Winners & Draw Results</a>
+                            <a class="nav-link text-light" href="/winners/">Winners & Draw Results</a>
                         </li>
 
 
@@ -166,7 +166,6 @@
         storedItem.forEach(function(item,index){
           length+=parseInt(item.quantity)
         })
-        console.log(length)
         var quantity_view = document.getElementById("cart_quantity");
         quantity_view.textContent = length;
     }
@@ -244,8 +243,11 @@
 
 <script>
     function addToCart(id) {
-        var quantity = document.getElementById(`quantity_${id}`).value
+        var quantity = document.getElementById(`quantity_${id}`).value;
         var cart = localStorage.getItem('cart');
+        var price = document.getElementById(`price_${id}`).textContent;
+        console.log(price);
+        console.log(price.textContent);
             if (!cart) {
                 cart = [];
             } else {
@@ -254,12 +256,13 @@
             }
             var newData = {
                 id: id,
-                quantity: parseInt(quantity)
+                quantity: parseInt(quantity),
+                price: parseFloat(price)
             };
             let found = false
             cart.forEach(function(item,index){
                 if(item.id == newData.id){
-                    item.quantity+=newData.quantity 
+                    item.quantity+=newData.quantity
                     found=true
                 }
             })

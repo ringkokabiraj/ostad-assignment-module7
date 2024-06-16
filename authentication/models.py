@@ -1,6 +1,8 @@
-from django.db import models
-from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+
 class CustomUserManager(BaseUserManager):
     def create_user(self,email,password=None,**extra_fields):
         if not email:
@@ -44,3 +46,18 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['password']
     objects = CustomUserManager()
+
+
+
+class Checkout(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_of_birth = models.DateField()
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
+    street_address = models.CharField(max_length=255)
+    address_line2 = models.CharField(max_length=255, null=True,blank=True)
+    town = models.CharField(max_length=255)
+    postcode = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+    email = models.EmailField()

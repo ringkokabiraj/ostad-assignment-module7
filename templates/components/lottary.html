@@ -19,7 +19,7 @@
                 <button class="btn o-btn-outline-quantity button-plus" type="button" onclick="handle_plus({{lottery.id}})"><span class="fa fa-plus"></span></button>
             </div>
 
-            <h5 class="mt-3">${{lottery.price}} <span class="sold-percent">per entry</span></h5>
+            <h5 class="mt-3"> $<span id="price_{{lottery.id}}">{{lottery.price}}</span> <span class="sold-percent">per entry</span></h5>
             <div class="clearfix">
                 <div style="float: left;">
                     <span class="sold-percent">Sold: {{lottery.total_sold}}%</span>

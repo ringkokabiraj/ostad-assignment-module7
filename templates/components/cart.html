@@ -5,7 +5,7 @@
       <form class="woocommerce-cart-form rounded" action="" method="post">
         <div class="card" style="background-color: #f4f5f7">
           <div class="p-3">
-            <a href="#" class="btn btn-outline-dark rounded-pill">
+            <a href="/" class="btn btn-outline-dark rounded-pill">
               <span class="icon-back-arrow me-2 fs-11"></span>Continue Shopping
             </a>
           </div>
@@ -78,13 +78,10 @@
               <tr>
                 <th class="px-0">Subtotal</th>
                 <td class="px-0 text-end" data-title="Subtotal">
-                  <strong
-                    ><span class="woocommerce-Price-amount amount"
-                      ><bdi
-                        ><span class="woocommerce-Price-currencySymbol">£</span
-                        >30.00</bdi
-                      ></span
-                    ></strong
+                  <strong>
+                    <span class="woocommerce-Price-amount amount"><bdi>
+                      <span class="woocommerce-Price-currencySymbol">£</span>
+                      <span id="subtotal">30.00</span></bdi></span></strong
                   >
                 </td>
               </tr>
@@ -94,9 +91,7 @@
                   <strong
                     ><span class="woocommerce-Price-amount amount"
                       ><bdi
-                        ><span class="woocommerce-Price-currencySymbol">£</span
-                        >30.00</bdi
-                      ></span
+                        ><span class="woocommerce-Price-currencySymbol">£</span><span  id="total">30.00</span></bdi></span
                     ></strong
                   >
                 </td>
@@ -115,3 +110,5 @@
     </div>
   </div>
 </div>
+
+

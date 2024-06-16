@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'social_django',
     'rest_framework',
     'corsheaders',
+    'django_apscheduler',
 ]
 
 MIDDLEWARE = [
