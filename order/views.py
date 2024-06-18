@@ -57,6 +57,33 @@ def checkout_view(request):
 
 
 
+def checkout_with_saved_data(request,pk):
+    if request.user.is_authenticated:
+        checkout = Checkout.objects.get(id=pk)
+        cart_data = request.COOKIES.get('cart')
+        json_data = json.loads(cart_data)
+        if json_data:
+            pass
+        else:
+            return redirect('/cart/')
+        
+        order = Order.objects.create(date_of_birth = checkout.date_of_birth,first_name = checkout.first_name,last_name = checkout.last_name,
+                                        country = checkout.country,street_address= checkout.street_address,address_line2=checkout.address_line2,
+                                        town = checkout.town,postcode = checkout.postcode, phone=checkout.phone,
+                                        email=checkout.email)
+        order.user = request.user
+            
+        for i in json_data:
+            try:
+                product = Lottery.objects.get(id = i['id'])
+            except:
+                continue
+            OrderItem.objects.create(order = order, product=product, quantity = i['quantity'])
+
+        return render(request, 'payment.html',context={'order':order})
+    else:
+        return redirect('/auth/login')
+        
     
 def payment_view(request,pk):
     if request.method=='POST':

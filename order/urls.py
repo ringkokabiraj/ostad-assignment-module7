@@ -8,5 +8,5 @@ urlpatterns = [
     path('payment/<int:pk>/', payment_view, name="Payment View Page"),
     path('success/<int:pk>/', success_view, name="Payment Success View Page"),
     path('cancel/<int:pk>/', cancel_view, name="Payment Cancel View Page"),
-
+    path('checkout/<int:pk>/',checkout_with_saved_data, name="Checkout With Saved Data")
 ]
