@@ -19,7 +19,7 @@ li a .nav-link {
 .draw-date {
     position: absolute;
     bottom: -12px;
-    left: 34%;
+    left: 40%;
     transform: translateX(-60%);
     background-color: #fb2019;
     padding: 6px 22px;
