@@ -17,18 +17,20 @@ li a .nav-link {
 }
 
 .draw-date {
+    width: 80%; /* Adjust width as needed */
+    text-align: center; 
     position: absolute;
-    bottom: -12px;
-    left: 40%;
-    transform: translateX(-60%);
-    background-color: #fb2019;
+    bottom: -14px;
+    left:50%;
+    transform: translateX(-50%);
+    background-color: #2aef8c;
     padding: 6px 22px;
-    border-radius: 6px;
-    color: white;
+    color: black;
     font-size: 13px !important;
     font-weight: bold !important;
     text-transform: uppercase;
 }
+
 
 .custom-card .card-body {
     background-color: #ffffff;
@@ -110,3 +112,5 @@ li a .nav-link {
 .nav-tabs .nav-item .nav-link:not(.active) {
     background-color: #eaeaea;
 }
+
+
