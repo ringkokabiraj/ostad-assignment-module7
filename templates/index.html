@@ -24,24 +24,7 @@
 <!-- Start Banner Hero -->
 <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="container">
-        <div class="row p-5">
-          <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-            <!-- Banner Image Here -->
-          </div>
-          <div class="col-lg-6 mb-0 d-flex align-items-start">
-            <div class="text-align-left">
-              <h1 class="h1">1999 Toyota Chaser <br> JZX100 Tourer V</h1>
-              <p>OR £20,000 TAX FREE CASH</p>
-              <button class="btn btn-warning btn-capsule text-dark">
-                Enter Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Dynamic slides will be inserted here -->
   </div>
 
   <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button"
@@ -53,6 +36,8 @@
     <i class="fas fa-chevron-right"></i>
   </a>
 </div>
+
+
 <!-- End Banner Hero -->
 
 <div class="position-relative">
@@ -61,13 +46,9 @@
       <div class="col-12">
         <div class="d-flex justify-content-center overflow-auto">
           <a href="#" class="btn bg-none mx-2"><span style="font-weight: bold !important;">Competitions</span></a>
-          <a href="#" class="btn bg-none mx-2">All</a>
-          <a href="#" class="btn bg-none mx-2">Upcoming</a>
-          <a href="#" class="btn bg-none mx-2">Cars & Machinery</a>
-          <a href="#" class="btn bg-none mx-2">Cash</a>
-          <a href="#" class="btn bg-none mx-2">Tech & Luxury</a>
-          <a href="#" class="btn bg-none mx-2">Instant Wins</a>
-          <a href="#" class="btn bg-none mx-2">Watch Competitions</a>
+          {% for cat in catagories %}
+          <a href="#{{cat.name}}" class="btn bg-none mx-2">{{cat.name}}</a>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -94,7 +75,7 @@
   </div>
 
   {% for j in catagories %} {% if j|is_category_empty %} {% else %}
-  <div class="row mb-5">
+  <div class="row mb-5" id="{{j.name}}">
     <div class="d-flex justify-content-between mb-3">
       <h2>{{j.name}}</h2>
       <a href="/lottery/get_category/{{j.id}}/" class="btn btn-capsule"
@@ -113,50 +94,105 @@
 
 
 <!-- content end -->
-<section class="container">
-  <div class="row text-center pt-5 pb-3">
-    <div class="col-lg-6 m-auto">
-      <h1 class="h1" style="text-transform: uppercase;">Why Choose Us?</h1>
+<section style="background-color: #f2b840;">
+  <div class="container">
+    <div class="row text-center pt-5 pb-3">
+      <div class="col-lg-6 m-auto">
+        <h2 class="p-3" style="text-transform: uppercase; color: white;">Why Choose Us?</h2>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-md-6 col-lg-4 pb-5" style="padding: 0;">
+        <div class="card h-100 py-4 p-3" style="border: none; border-radius: 10px; margin-left: 5px;">
+          <div class="row align-items-center">
+            <div class="col-3 text-center">
+              <div class="h2 text-dark"><i class="fas fa-shield-alt"></i></div>
+            </div>
+            <div class="col-9">
+              <h2 class="h5 mt-2" style="color: #f2b840; font-weight: bold !important;">Great Odds</h2>
+              <p>Limited Tickets In Each Draw</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6 col-lg-4 pb-5" style="padding: 0;">
+        <div class="card h-100 py-4 p-3" style="border: none; border-radius: 10px; margin-left: 5px;">
+          <div class="row align-items-center">
+            <div class="col-3 text-center">
+              <div class="h2 text-dark"><i class="fas fa-handshake"></i></div>
+            </div>
+            <div class="col-9">
+              <h2 class="h5 mt-2" style="color: #f2b840; font-weight: bold !important;">Transparent</h2>
+              <p>Ensuring Clear Communication</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-6 col-lg-4 pb-5" style="padding: 0;">
+        <div class="card h-100 py-4 p-3" style="border: none; border-radius: 10px; margin-left: 5px;">
+          <div class="row align-items-center">
+            <div class="col-3 text-center">
+              <div class="h2 text-dark"><i class="fa fa-user-shield"></i></div>
+            </div>
+            <div class="col-9">
+              <h2 class="h5 mt-2" style="color: #f2b840; font-weight: bold !important;">Guaranteed</h2>
+              <p>Assurance of Service Quality</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6 col-lg-4 pb-5">
-      <div class="card h-100 py-4 services-icon-wap shadow p-3">
-        <div class="row align-items-center">
-          <div class="col-3 text-center">
-            <div class="h2 text-dark"><i class="fas fa-shield-alt"></i></div>
-          </div>
-          <div class="col-9">
-            <h2 class="h5 mt-4">Great Odds</h2>
-            <p>Limited Tickets In Each Draw</p>
+</section>
+
+<section style="background-color: #f5f6f7;">
+  <div class="container">
+    <div class="row text-center pt-5 pb-3">
+      <div class="col-lg-6 m-auto">
+        <h2 class="p-3" style="text-transform: uppercase; color: rgb(0, 0, 0);">How To Play</h2>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-md-6 col-lg-4 pb-5" style="padding: 0;">
+        <div class="card h-100 py-4 p-3" style="border: none; border-radius: 10px; margin-left: 5px;">
+          <div class="row align-items-center">
+            <div class="col-3 text-center">
+              <div class="h2 text-dark"><img src="https://7daysperformance.co.uk/assets/svg-icons/prize-gray.svg" alt=""></div>
+            </div>
+            <div class="col-9">
+              <p class="mt-2" style="color: #f2b840;">01 STEP</p>
+              <p>Select your prize and entries</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-md-6 col-lg-4 pb-5">
-      <div class="card h-100 py-4 services-icon-wap shadow p-3">
-        <div class="row align-items-center">
-          <div class="col-3 text-center">
-            <div class="h2 text-dark"><i class="fas fa-handshake"></i></div>
-          </div>
-          <div class="col-9">
-            <h2 class="h5 mt-4">Transparent</h2>
-            <p>Ensuring Clear Communication</p>
+  
+      <div class="col-md-6 col-lg-4 pb-5" style="padding: 0;">
+        <div class="card h-100 py-4 p-3" style="border: none; border-radius: 10px; margin-left: 5px;">
+          <div class="row align-items-center">
+            <div class="col-3 text-center">
+              <div class="h2 text-dark"><img src="https://7daysperformance.co.uk/assets/svg-icons/answer.svg" alt=""></div>
+            </div>
+            <div class="col-9">
+              <p class="mt-2" style="color: #f2b840;">02 STEP</p>
+              <p>Answer the question correctly</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-md-6 col-lg-4 pb-5">
-      <div class="card h-100 py-4 services-icon-wap shadow p-3">
-        <div class="row align-items-center">
-          <div class="col-3 text-center">
-            <div class="h2 text-dark"><i class="fa fa-user-shield"></i></div>
-          </div>
-          <div class="col-9">
-            <h2 class="h5 mt-4">Guaranteed</h2>
-            <p>Assurance of Service Quality</p>
+  
+      <div class="col-md-6 col-lg-4 pb-5" style="padding: 0;">
+        <div class="card h-100 py-4 p-3" style="border: none; border-radius: 10px; margin-left: 5px;">
+          <div class="row align-items-center">
+            <div class="col-3 text-center">
+              <div class="h2 text-dark"><img src="https://7daysperformance.co.uk/assets/svg-icons/microphone.svg" alt=""></div>
+            </div>
+            <div class="col-9">
+              <p class="mt-2" style="color: #f2b840;">03 STEP</p>
+              <p>Winner announced on Live Draw</p>
+            </div>
           </div>
         </div>
       </div>
@@ -165,6 +201,56 @@
 </section>
 
 
+<script>
+// Define your dynamic slide data
+const slides = [
+  {
+    backgroundImage: 'url(https://www.pristinecompetitions.co.uk/wp-content/uploads/2024/06/PRISTINE-Kane-Tractor-Package-112-scaled.jpg)',
+    title: '1999 Toyota Chaser JZX100 Tourer V',
+    subtitle: 'OR £20,000 TAX FREE CASH',
+    buttonText: 'Enter Now',
+    buttonLink: '#'
+  },
+  // Add more objects for additional slides
+];
+
+// Function to populate the carousel with dynamic content
+function populateCarousel() {
+  const carouselInner = document.querySelector('.carousel-inner');
+
+  slides.forEach((slide, index) => {
+    const isActive = index === 0 ? 'active' : ''; // Ensure first slide is active
+    const slideContent = `
+      <div class="carousel-item ${isActive}">
+        <div style="background-image: ${slide.backgroundImage}" class="carousel-background"></div>
+        <div class="carousel-overlay"></div>
+        <div class="container">
+          <div class="row p-5">
+            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+              <!-- Banner Image Here -->
+            </div>
+            <div class="col-lg-6 mb-0 d-flex align-items-start">
+              <div class="text-align-left">
+                <h1 class="h1">${slide.title}</h1>
+                <p>${slide.subtitle}</p>
+                <a href="${slide.buttonLink}" class="btn btn-warning btn-capsule text-dark">
+                  ${slide.buttonText}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    carouselInner.innerHTML += slideContent;
+  });
+}
+
+// Call the function to populate the carousel on page load
+window.addEventListener('load', populateCarousel);
+
+</script>
 
 <script>
   function handle_plus(id) {

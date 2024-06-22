@@ -113,4 +113,9 @@ li a .nav-link {
     background-color: #eaeaea;
 }
 
+.entry-btn:hover {
+    background-color: #f2b840;
+    color: white !important;
+}
+
 

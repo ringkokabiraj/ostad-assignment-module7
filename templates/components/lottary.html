@@ -14,7 +14,7 @@
             <p class="mt-2 text-muted"><span style="font-size: 13px;">Cash alternative:</span> <span style="font-weight: bold !important;">£{{lottery.cash_alternative}}</span></p>
             {% endif %}
 
-            <h5 class="mt-3 h2" style="font-weight: bold !important;"> <span id="price_{{lottery.id}}" style="color: #2aa3ef;">£{{lottery.price}}</span> <span class="sold-percent"></span></h5>
+            <h5 class="mt-3 h2" style="font-weight: bold !important;"> <span id="price_{{lottery.id}}" style="color: #f2b840;">£{{lottery.price}}</span> <span class="sold-percent"></span></h5>
             <div class="clearfix">
                 <div style="float: left;">
                     <span class="sold-percent">Sold: {{lottery.total_sold}}%</span>
@@ -31,7 +31,7 @@
                 <input type="number" id="quantity_{{lottery.id}}" class="input-text qty text form-control text-center" name="quantity" value="1" title="Qty" size="4" min="0" max="" step="1" placeholder="" inputmode="numeric" autocomplete="off" data-product_id="3838865">
                 <button class="btn o-btn-outline-quantity button-plus" type="button" onclick="handle_plus({{lottery.id}})"><span class="fa fa-plus"></span></button>
             </div>
-            <button class="btn btn-sm mt-3 rounded full-width-btn" style="border-color: #2aa3ef; color: #2aa3ef;" onclick="addToCart({{lottery.id}})">
+            <button class="btn btn-sm mt-3 rounded full-width-btn entry-btn" style="border-color: #f2b840; color: #f2b840;" onclick="addToCart({{lottery.id}})">
                 Enter Now <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
             </button>
         </div>
