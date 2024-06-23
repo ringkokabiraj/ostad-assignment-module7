@@ -5,7 +5,7 @@
         <div class="position-relative">
             <img class="card-img-top" src={{lottery.image.url}} alt="image">
             <div class="draw-date rounded-pill">
-                {{lottery.draw_in}}
+                {{ lottery.draw_in|date:"F d, Y, g:i A" }}
             </div>
         </div>
         <div class="card-body p-3 text-center">
