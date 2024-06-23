@@ -13,6 +13,17 @@
     li a {
         color: black;
     }
+    .custom-range::-webkit-slider-thumb {
+    background: #f2b840;
+    }
+
+    .custom-range::-moz-range-thumb {
+    background: #f2b840;
+    }
+
+    .custom-range::-ms-thumb {
+    background: #f2b840;
+    }
 </style>
 {% endblock links %}
 
@@ -151,6 +162,11 @@
                                             <h3 class="h5 mb-5 mt-3" style="font-weight: bold;">How Many Tickets?</h3>
                                             {% comment %} <form action="#" method="GET"> {% endcomment %}
                                                 <input type="hidden" name="product-title" value="Activewear">
+                                                <div class="row mt-4">
+                                                    <div class="col">
+                                                        <input type="range" class="form-range custom-range" id="ticketRange_{{lottery.id}}" min="1" max="{{lottery.max_entries_per_user}}" value="1" oninput="updateTicketQuantity({{lottery.id}})">
+                                                    </div>
+                                                </div>
                                                 <div class="row align-items-right mt-4">
                                                     <div class="col-4 text-left">
                                                         <span class="btn btn-outline-secondary" id="btn-minus" onclick="handle_minus({{lottery.id}})">-</span>
@@ -278,21 +294,47 @@
     </section>
 
     <script>
-        function handle_plus(id){
-            quantity_field = document.getElementById(`quantity_${id}`);
-            value = parseInt(quantity_field.textContent);
-            value++;
+        // function handle_plus(id){
+        //     quantity_field = document.getElementById(`quantity_${id}`);
+        //     value = parseInt(quantity_field.textContent);
+        //     value++;
       
-            quantity_field.textContent = value;
-        }
-        function handle_minus(id){
+        //     quantity_field.textContent = value;
+        // }
+        // function handle_minus(id){
       
-            quantity_field = document.getElementById(`quantity_${id}`);
-            value = parseInt(quantity_field.textContent);
-            if(value>=2){
-                value--;
+        //     quantity_field = document.getElementById(`quantity_${id}`);
+        //     value = parseInt(quantity_field.textContent);
+        //     if(value>=2){
+        //         value--;
+        //     }
+        //     quantity_field.textContent = value;
+        // }
+        function handle_minus(lotteryId) {
+            var quantityElem = document.getElementById('quantity_' + lotteryId);
+            var rangeElem = document.getElementById('ticketRange_' + lotteryId);
+            var currentValue = parseInt(quantityElem.textContent);
+            if (currentValue > 1) {
+                quantityElem.textContent = currentValue - 1;
+                rangeElem.value = currentValue - 1;
             }
-            quantity_field.textContent = value;
+        }
+
+        function handle_plus(lotteryId) {
+            var quantityElem = document.getElementById('quantity_' + lotteryId);
+            var rangeElem = document.getElementById('ticketRange_' + lotteryId);
+            var currentValue = parseInt(quantityElem.textContent);
+            var maxTickets = parseInt(rangeElem.max);
+            if (currentValue < maxTickets) {
+                quantityElem.textContent = currentValue + 1;
+                rangeElem.value = currentValue + 1;
+            }
+        }
+
+        function updateTicketQuantity(lotteryId) {
+            var rangeElem = document.getElementById('ticketRange_' + lotteryId);
+            var quantityElem = document.getElementById('quantity_' + lotteryId);
+            quantityElem.textContent = rangeElem.value;
         }
       </script>
 
