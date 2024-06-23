@@ -281,7 +281,7 @@
 // Define your dynamic slide data
 const slides = [
   {
-    backgroundImage: 'url(https://www.pristinecompetitions.co.uk/wp-content/uploads/2024/06/PRISTINE-Kane-Tractor-Package-112-scaled.jpg)',
+    backgroundImage: 'url({% static "/img/hero_banner.jpeg" %})',
     title: 'Win Tax-Free Cash',
     subtitle: 'Daily Draws',
     buttonText: 'Enter Now',
@@ -308,11 +308,11 @@ function populateCarousel() {
             <div class="col-lg-6 mb-0 d-flex align-items-start">
               <div class="text-align-left">
                 <div class="row">
-                  <div class="col-md-8">
-                    <h1 class="h1">${slide.title}</h1>
+                  <div class="col-md-9">
+                    <h1 class="h1" style="text-transform:uppercase; font-family: Cantarell;">${slide.title}</h1>
                   </div>
                 </div>
-                <p>${slide.subtitle}</p>
+                <p class="h5 p-3">${slide.subtitle}</p>
                 <a href="${slide.buttonLink}" class="btn btn-warning btn-capsule text-dark">
                   ${slide.buttonText} <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
                 </a>
