@@ -45,7 +45,7 @@
     <div class="row">
       <div class="col-12">
         <div class="d-flex justify-content-center overflow-auto">
-          <a href="#" class="btn bg-none mx-2"><span style="font-weight: bold !important;">Competitions</span></a>
+          <div class="btn bg-none mx-2"><span style="font-weight: bold !important;">Competitions</span></div>
           {% for cat in catagories %}
           <a href="#{{cat.name}}" class="btn bg-none mx-2">{{cat.name}}</a>
           {% endfor %}
@@ -307,7 +307,11 @@ function populateCarousel() {
             </div>
             <div class="col-lg-6 mb-0 d-flex align-items-start">
               <div class="text-align-left">
-                <h1 class="h1">${slide.title}</h1>
+                <div class="row">
+                  <div class="col-md-8">
+                    <h1 class="h1">${slide.title}</h1>
+                  </div>
+                </div>
                 <p>${slide.subtitle}</p>
                 <a href="${slide.buttonLink}" class="btn btn-warning btn-capsule text-dark">
                   ${slide.buttonText}
