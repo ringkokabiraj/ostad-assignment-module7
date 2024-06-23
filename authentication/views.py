@@ -63,6 +63,8 @@ def change_user_credintials(request):
                 messages.error(request,'Email Already Exist')
                 return redirect('/auth/user/')
             return redirect('/auth/user/')
+    else:
+        return redirect('auth:login')
             
 
 def change_password(request):

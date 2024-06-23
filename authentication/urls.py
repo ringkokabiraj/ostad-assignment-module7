@@ -3,8 +3,10 @@ from django.urls import path
 
 from .views import *
 
+app_name = "auth"
+
 urlpatterns = [
-    path('login', login_view, name="Login View"),
+    path('login', login_view, name="login"),
     path('register', register_view, name="Register View"),
     path('logout', logout_view, name="Logout View"),
     path('user/', change_user_credintials, name="Change User Credintials View"),
