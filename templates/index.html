@@ -59,9 +59,9 @@
 
 <!-- content start -->
 <div class="container py-5 mt-5">
-  <div class="row mb-5">
+  <!-- <div class="row mb-5" id="Ending Soon">
     <div class="d-flex justify-content-between mb-3">
-      <h2>Ending Soon</h2>
+      <h4>Ending Soon</h4>
       {% comment %} <a href="/lottery/get_category/{{j.id}}/" class="btn rounded-pill"
         style="background-color: #ffc107; width: 130px">See All</a> {% endcomment %}
     </div>
@@ -72,12 +72,12 @@
     {% endwith %}
     {% endfor %}
     {% endfor %}
-  </div>
+  </div> -->
 
   {% for j in catagories %} {% if j|is_category_empty %} {% else %}
   <div class="row mb-5" id="{{j.name}}">
     <div class="d-flex justify-content-between mb-3">
-      <h2>{{j.name}}</h2>
+      <h4>{{j.name}}</h4>
       <a href="/lottery/get_category/{{j.id}}/" class="btn btn-capsule"
         style="background-color: #f2b840; font-weight: bold !important;">View All</a>
     </div>
