@@ -115,7 +115,7 @@ li a .nav-link {
 
 .entry-btn:hover {
     background-color: #f2b840;
-    color: white !important;
+    color: rgb(0, 0, 0) !important;
 }
 
 
