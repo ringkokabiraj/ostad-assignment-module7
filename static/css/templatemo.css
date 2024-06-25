@@ -89,18 +89,38 @@ body, ul, li, p, a, label, input, div {
   background: #efefef !important;
 }
 
-#template-mo-zay-hero-carousel .carousel-inner .carousel-item {
+.carousel-inner .carousel-item {
   position: relative;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover; /* Use cover to ensure the background image covers the container */
-  background-image: url(../img/hero_banner.jpeg);
-  color: #FFF;
-  height: 80vh;
+  background-size: cover;
+  height: 85vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  text-align: center;
+  text-align: left;
+  color: #FFF;
+}
+
+.carousel-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.308);
+  z-index: 1;
 }
 
 #template-mo-zay-hero-carousel .carousel-inner .carousel-item::before {

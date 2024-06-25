@@ -214,32 +214,12 @@
           <div class="card-body">
             <div class="d-flex align-items-center mb-3">
               <div class="">
-                <h5 class="card-title mb-0">John Doe</h5>
-                <p class="text-muted mb-0">April 15, 2024</p>
+                <h5 class="card-title mb-0">Johnathan Roberts</h5>
+                <p class="text-muted mb-0">8 hours age</p>
               </div>
             </div>
-            <p class="card-text">"This service is fantastic! I won the car of my dreams. Highly recommended!"</p>
-            <div class="text-warning">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-4 pb-5">
-        <div class="card h-100 py-2 shadow p-3" style="border: none; border-radius: 10px;">
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-3">
-              <div class="">
-                <h5 class="card-title mb-0">John Doe</h5>
-                <p class="text-muted mb-0">April 15, 2024</p>
-              </div>
-            </div>
-            <p class="card-text">"This service is fantastic! I won the car of my dreams. Highly recommended!"</p>
+            <p class="card-text">Great experience from start to finish The website was super easy to use, and entering the competition was a breeze. I loved how quickly I could sign up. Can’t wait to see if I win!
+              </p>
             <div class="text-warning">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -256,11 +236,33 @@
           <div class="card-body">
             <div class="d-flex align-items-center mb-3">
               <div class="">
-                <h5 class="card-title mb-0">John Doe</h5>
-                <p class="text-muted mb-0">April 15, 2024</p>
+                <h5 class="card-title mb-0">Emily Sanchez</h5>
+                <p class="text-muted mb-0">15 hours ago</p>
               </div>
             </div>
-            <p class="card-text">"This service is fantastic! I won the car of my dreams. Highly recommended!"</p>
+            <p class="card-text">Smooth and enjoyable process
+              Entered the competition without any hassle. The website's layout is clear, and payment was straightforward.</p>
+            <div class="text-warning">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 pb-5">
+        <div class="card h-100 py-2 shadow p-3" style="border: none; border-radius: 10px;">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="">
+                <h5 class="card-title mb-0">Michael Thompson</h5>
+                <p class="text-muted mb-0">20 hours ago</p>
+              </div>
+            </div>
+            <p class="card-text">Love Rapid Competitions!
+              Just entered a competition today, the prizes are fantastic. Just waiting to win now haha</p>
             <div class="text-warning">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -278,59 +280,58 @@
 
 
 <script>
-// Define your dynamic slide data
-const slides = [
-  {
-    backgroundImage: 'url({% static "/img/hero_banner.jpeg" %})',
-    title: 'Win Tax-Free Cash',
-    subtitle: 'Daily Draws',
-    buttonText: 'Enter Now',
-    buttonLink: '#'
-  },
-  // Add more objects for additional slides
-];
+  // Define your dynamic slide data
+  const slides = [
+    {
+      backgroundImage: 'url({% static "img/hero_banner.jpeg" %})',
+      title: 'Win Tax-Free Cash',
+      subtitle: 'Daily Draws',
+      buttonText: 'Enter Now',
+      buttonLink: '#'
+    },
+    // Add more objects for additional slides
+  ];
 
-// Function to populate the carousel with dynamic content
-function populateCarousel() {
-  const carouselInner = document.querySelector('.carousel-inner');
+  // Function to populate the carousel with dynamic content
+  function populateCarousel() {
+    const carouselInner = document.querySelector('.carousel-inner');
 
-  slides.forEach((slide, index) => {
-    const isActive = index === 0 ? 'active' : ''; // Ensure first slide is active
-    const slideContent = `
-      <div class="carousel-item ${isActive}">
-        <div style="background-image: ${slide.backgroundImage}" class="carousel-background"></div>
-        <div class="carousel-overlay"></div>
-        <div class="container">
-          <div class="row p-5">
-            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-              <!-- Banner Image Here -->
-            </div>
-            <div class="col-lg-6 mb-0 d-flex align-items-start">
-              <div class="text-align-left">
-                <div class="row">
-                  <div class="col-md-9">
-                    <h1 class="h1" style="text-transform:uppercase; font-family: Cantarell;">${slide.title}</h1>
+    slides.forEach((slide, index) => {
+      const isActive = index === 0 ? 'active' : ''; // Ensure first slide is active
+      const slideContent = `
+        <div class="carousel-item ${isActive}">
+          <div style="background-image: ${slide.backgroundImage}" class="carousel-background"></div>
+          <div class="carousel-overlay"></div>
+          <div class="container">
+            <div class="row p-5">
+              <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                <!-- Banner Image Here -->
+              </div>
+              <div class="col-lg-6 mb-0 d-flex align-items-start">
+                <div class="text-align-left">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <h1 class="h1" style="text-transform:uppercase; font-family: Cantarell;">${slide.title}</h1>
+                    </div>
                   </div>
+                  <p class="h5 p-3">${slide.subtitle}</p>
+                  <a href="${slide.buttonLink}" class="btn btn-warning btn-capsule text-dark">
+                    ${slide.buttonText} <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
+                  </a>
                 </div>
-                <p class="h5 p-3">${slide.subtitle}</p>
-                <a href="${slide.buttonLink}" class="btn btn-warning btn-capsule text-dark">
-                  ${slide.buttonText} <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
-                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
+      carouselInner.innerHTML += slideContent;
+    });
+  }
 
-    carouselInner.innerHTML += slideContent;
-  });
-}
-
-// Call the function to populate the carousel on page load
-window.addEventListener('load', populateCarousel);
-
+  // Call the function to populate the carousel on page load
+  window.addEventListener('load', populateCarousel);
 </script>
+
 
 <script>
   function handle_plus(id) {
