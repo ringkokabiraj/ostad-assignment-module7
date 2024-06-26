@@ -95,9 +95,8 @@ body, ul, li, p, a, label, input, div {
   background-position: center center;
   background-size: cover;
   height: 85vh;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+
+  align-items: end;
   text-align: left;
   color: #FFF;
 }
@@ -121,6 +120,20 @@ body, ul, li, p, a, label, input, div {
   right: 0;
   background: rgba(0, 0, 0, 0.308);
   z-index: 1;
+}
+
+.carousel-content {
+  position: absolute;
+  bottom: 120px;
+  left: 100px;
+  z-index: 3;
+  color: white;
+}
+
+.carousel-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 #template-mo-zay-hero-carousel .carousel-inner .carousel-item::before {

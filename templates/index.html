@@ -303,31 +303,20 @@
       console.log(slide.pk)
       const isActive = index === 0 ? 'active' : ''; // Ensure first slide is active
       const slideContent = `
-        <div class="carousel-item ${isActive}">
-          <div style="background-image: url(${slide.image});" class="carousel-background"></div>
-          <div class="carousel-overlay"></div>
-          <div class="container">
-            <div class="row p-5">
-              <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                <!-- Banner Image Here -->
-              </div>
-              <div class="col-lg-6 mb-0 d-flex align-items-start">
-                <div class="text-align-left">
-                  <div class="row">
-                    <div class="col-md-9">
-                      <h1 class="h1" style="text-transform:uppercase; font-family: Cantarell;">${slide.name}</h1>
-                    </div>
-                  </div>
-                  <p class="h3 p-3" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;" >${slide.des}</p>
-                  <a href="/lottery/lottery/${slide.id}/" class="btn btn-warning btn-capsule text-dark" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;">
-                    Enter <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
+      <div class="carousel-item ${isActive}">
+        <div style="background-image: url(${slide.image});" class="carousel-background"></div>
+        <div class="carousel-overlay"></div>
+        <div class="carousel-content">
+          <div class="carousel-text">
+            <h1 class="h1" style="text-transform:uppercase; font-family: Cantarell;">${slide.name}</h1>
+            <p class="h3 p-3" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;">${slide.des}</p>
+            <a href="/lottery/lottery/${slide.id}/" class="btn btn-warning btn-capsule text-dark" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;">
+              Enter <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
+            </a>
           </div>
         </div>
-      `;
+      </div>
+    `;
       carouselInner.innerHTML += slideContent;
     });
   }
