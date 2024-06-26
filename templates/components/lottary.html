@@ -14,7 +14,7 @@
             <p class="mt-2 text-muted"><span style="font-size: 13px;">Cash alternative:</span> <span style="font-weight: bold !important;">£{{lottery.cash_alternative}}</span></p>
             {% endif %}
 
-            <h5 class="mt-3 h2" style="font-weight: bold !important;"> <span id="price_{{lottery.id}}" style="color: #f2b840;">£{{lottery.price}}</span> <span class="sold-percent"></span></h5>
+            <h5 class="mt-3 h2" style="font-weight: bold !important; color: #f2b840;">£<span id="price_{{lottery.id}}">{{lottery.price}}</span> <span class="sold-percent"></span></h5>
             <div class="clearfix">
                 <div style="float: left;">
                     <span class="sold-percent">Sold: {{lottery.total_sold}}%</span>

@@ -184,11 +184,14 @@
     function update_subtotal(){
         var subtotal = document.getElementById("subtotal");
         var total_value = document.getElementById("total");
+        console.log(subtotal);
+        console.log(total_value);
         var storedItem = getCartFromLocalStorage();
         var total = 0;
         storedItem.forEach(function(item,index){
             total+= (parseInt(item.quantity) * parseFloat(item.price))
         })
+        console.log(total);
         total_value.textContent = total.toFixed(2);
         subtotal.textContent = total.toFixed(2);
     }
