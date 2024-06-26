@@ -45,7 +45,6 @@
     <div class="row">
       <div class="col-12">
         <div class="d-flex justify-content-center overflow-auto">
-          <div class="btn bg-none mx-2"><span style="font-weight: bold !important;">Competitions</span></div>
           {% for cat in catagories %}
           <a href="#{{cat.name}}" class="btn bg-none mx-2">{{cat.name}}</a>
           {% endfor %}
@@ -314,8 +313,8 @@
                       <h1 class="h1" style="text-transform:uppercase; font-family: Cantarell;">${slide.title}</h1>
                     </div>
                   </div>
-                  <p class="h5 p-3">${slide.subtitle}</p>
-                  <a href="${slide.buttonLink}" class="btn btn-warning btn-capsule text-dark">
+                  <p class="h3 p-3" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;" >${slide.subtitle}</p>
+                  <a href="${slide.buttonLink}" class="btn btn-warning btn-capsule text-dark" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;">
                     ${slide.buttonText} <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
                   </a>
                 </div>
