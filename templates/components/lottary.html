@@ -11,7 +11,7 @@
         <div class="card-body p-3 text-center">
             <h6 class="card-title mt-2 h3" style="font-weight: bold !important;">{{lottery.name}}</h6>
             {% if lottery.cash_alternative %}
-            <p class="mt-2 text-muted"><span style="font-size: 13px;">Cash alternative:</span> <span style="font-weight: bold !important;">£{{lottery.cash_alternative}}</span></p>
+            <p class="mt-2 text-muted"><span style="font-size: 13px;">Cash alternative:</span> <span style="font-weight: bold !important; color: #f2b840;">£{{lottery.cash_alternative}}</span></p>
             {% endif %}
 
             <h5 class="mt-3 h2" style="font-weight: bold !important; color: #f2b840;">£<span id="price_{{lottery.id}}">{{lottery.price}}</span> <span class="sold-percent"></span></h5>

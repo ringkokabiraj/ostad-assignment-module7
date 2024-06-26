@@ -280,7 +280,7 @@
 
 <script>
   // Define your dynamic slide data
-  const slides = [
+  {% comment %} const slides = [
     {
       backgroundImage: 'url({% static "img/hero_banner.jpeg" %})',
       title: 'Win Tax-Free Cash',
@@ -289,17 +289,22 @@
       buttonLink: '#'
     },
     // Add more objects for additional slides
-  ];
+  ]; {% endcomment %}
+
+  const slides = JSON.parse('{{ lottery_json|escapejs }}');
+  console.log(slides);
 
   // Function to populate the carousel with dynamic content
   function populateCarousel() {
     const carouselInner = document.querySelector('.carousel-inner');
 
     slides.forEach((slide, index) => {
+      console.log(slide);
+      console.log(slide.pk)
       const isActive = index === 0 ? 'active' : ''; // Ensure first slide is active
       const slideContent = `
         <div class="carousel-item ${isActive}">
-          <div style="background-image: ${slide.backgroundImage}" class="carousel-background"></div>
+          <div style="background-image: url(${slide.image});" class="carousel-background"></div>
           <div class="carousel-overlay"></div>
           <div class="container">
             <div class="row p-5">
@@ -310,12 +315,12 @@
                 <div class="text-align-left">
                   <div class="row">
                     <div class="col-md-9">
-                      <h1 class="h1" style="text-transform:uppercase; font-family: Cantarell;">${slide.title}</h1>
+                      <h1 class="h1" style="text-transform:uppercase; font-family: Cantarell;">${slide.name}</h1>
                     </div>
                   </div>
-                  <p class="h3 p-3" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;" >${slide.subtitle}</p>
-                  <a href="${slide.buttonLink}" class="btn btn-warning btn-capsule text-dark" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;">
-                    ${slide.buttonText} <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
+                  <p class="h3 p-3" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;" >${slide.name}</p>
+                  <a href="/lottery/lottery/${slide.id}/" class="btn btn-warning btn-capsule text-dark" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;">
+                    Enter <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
                   </a>
                 </div>
               </div>

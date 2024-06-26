@@ -1,22 +1,26 @@
 from django.shortcuts import redirect, render
-
+from django.utils import timezone
+from datetime import timedelta
+from django.core.serializers import serialize
 from lottery.models import Category, Lottery
 from order.models import Winner
-
+import json
 
 def home(request):
 
-    lottary_data = {
-        "lottary_img": "https://cdn.pristinecompetitions.co.uk/wp-content/uploads/2024/05/WebImage_BlackChaser-768x768.jpg",
-        "draw_date":"DRAW Jan 12",
-        "lottary_name" : "Lottary Name",
-        "lottary_cash" : 20000,
-        "per_entry" : 20,
-        "sold" : 75,
-    }
     catagories = Category.objects.all()
-    
-    return render(request, 'index.html', context={'catagories':catagories})
+    three_days_after = timezone.now() + timedelta(days=3)
+    lottery = Lottery.objects.all().order_by('draw_in')[:5]
+    lottery_json = data = []
+
+    for item in lottery:
+        lottery_json.append({
+            'id': item.id,
+            'name': item.name,
+            'image': request.build_absolute_uri(item.image.url) if item.image else None
+        })
+    lottery_json = json.dumps(lottery_json)
+    return render(request, 'index.html', context={'catagories':catagories,'lottery_json':lottery_json})
     
 
 
