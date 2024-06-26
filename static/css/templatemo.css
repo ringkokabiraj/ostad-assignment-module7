@@ -95,7 +95,6 @@ body, ul, li, p, a, label, input, div {
   background-position: center center;
   background-size: cover;
   height: 85vh;
-
   align-items: end;
   text-align: left;
   color: #FFF;
@@ -135,6 +134,59 @@ body, ul, li, p, a, label, input, div {
   flex-direction: column;
   align-items: flex-start;
 }
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .carousel-inner .carousel-item {
+    height: 80vh;
+  }
+
+  .carousel-content {
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .carousel-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-text p {
+    font-size: 1rem;
+  }
+
+  .carousel-text .btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-inner .carousel-item {
+    height: 70vh;
+  }
+
+  .carousel-content {
+    bottom: 60px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .carousel-text h1 {
+    font-size: 1.25rem;
+  }
+
+  .carousel-text p {
+    font-size: 0.875rem;
+  }
+
+  .carousel-text .btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
 
 #template-mo-zay-hero-carousel .carousel-inner .carousel-item::before {
   content: "";
