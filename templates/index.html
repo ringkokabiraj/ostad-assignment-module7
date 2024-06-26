@@ -351,4 +351,40 @@
   }
 </script>
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const countdownElements = document.querySelectorAll('.draw-date');
+      const oneDayInMs = 24 * 60 * 60 * 1000;
+
+      countdownElements.forEach(function(element) {
+        const date = element.getAttribute('data-date');
+        const timeZone = element.getAttribute('data-timezone');
+        const targetDate =  new Date(date + ' UTC');
+          
+          console.log(targetDate);
+          const now = new Date();
+          console.log(now);
+
+          if (targetDate - now < oneDayInMs) {
+              const countdownInterval = setInterval(function() {
+                  const now = new Date();
+                  const timeDifference = targetDate - now;
+
+                  if (timeDifference <= 0) {
+                      clearInterval(countdownInterval);
+                      element.innerHTML = 'Time is up!';
+                  } else {
+                      const hours = Math.floor((timeDifference % (oneDayInMs)) / (1000 * 60 * 60));
+                      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                      element.innerHTML = `ENDS IN ${hours}:${minutes}:${seconds}`;
+                  }
+              }, 1000);
+          }
+      });
+  });
+</script>
+
 {% endblock content %}
