@@ -11,7 +11,7 @@ register = template.Library()
 
 @register.filter
 def is_category_empty(value):
-    if value.lottery_set.all().exists():
+    if value.lottery_set.filter(draw_in__gte=timezone.now()).exists():
         return False
     else:
         return True
