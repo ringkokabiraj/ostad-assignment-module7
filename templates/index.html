@@ -2,7 +2,15 @@
 {% load custum_templatetags %} {% block title %}
 <title>Rapid Competitions</title>
 {% endblock title %} {% block links %} {% endblock links %} {% block content %}
+<style>
 
+  .red{
+    background-color: red !important;
+  }
+  .gold{
+    background-color: #f2b840;
+  }
+</style>
 <!-- Modal -->
 <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -81,7 +89,7 @@
         style="background-color: #f2b840; font-weight: bold !important;">View All</a>
     </div>
 
-    {% for i in j.lottery_set.all %}
+    {% for i in j|give_me_all_lottery_of_a_category %}
     {% with lottery=i x=1 %}
     {%include "./components/lottary.html"%}
     {% endwith %}
@@ -383,6 +391,7 @@
                       const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
                       element.innerHTML = `ENDS IN ${hours}:${minutes}:${seconds}`;
+                      element.classList.add("red");
                   }
               }, 1000);
           }

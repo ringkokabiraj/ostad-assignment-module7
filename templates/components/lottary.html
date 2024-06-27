@@ -4,7 +4,7 @@
     <div class="card custom-card shadow">
         <div class="position-relative">
             <img class="card-img-top" src={{lottery.image.url}} alt="image">
-            <div data-date="{{ lottery.draw_in|date:'Y-m-d H:i:s' }}" data-timezone="America/New_York" class="draw-date rounded-pill">
+            <div data-date="{{ lottery.draw_in|date:'Y-m-d H:i:s' }}" data-timezone="America/New_York" class="draw-date gold rounded-pill">
                 {{ lottery.draw_in|date:"F d, Y, g:i A" }}
             </div>
         </div>
