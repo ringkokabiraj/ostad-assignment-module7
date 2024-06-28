@@ -135,6 +135,15 @@ body, ul, li, p, a, label, input, div {
   align-items: flex-start;
 }
 
+.carousel-text h1 {
+  margin-left: 15px !important;
+}
+
+.carousel-text .btn {
+  margin-left: 15px !important;
+
+}
+
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
@@ -145,11 +154,12 @@ body, ul, li, p, a, label, input, div {
   .carousel-content {
     bottom: 120px !important;
     left: 60px !important;
-    right: 20px;
+    right: 20px !important;
   }
 
   .carousel-text h1 {
     font-size: 2rem !important; /* Adjust font size for tablets */
+    margin-left: 15px !important;
   }
 
   .carousel-text p {
@@ -157,8 +167,10 @@ body, ul, li, p, a, label, input, div {
   }
 
   .carousel-text .btn {
-    font-size: 1rem; /* Adjust font size for tablets */
-    padding: 0.5rem 1rem;
+    font-size: 1rem !important; /* Adjust font size for tablets */
+    padding: 0.5rem 1rem !important;
+    margin-left: 15px !important;
+
   }
 }
 
