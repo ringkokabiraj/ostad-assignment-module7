@@ -30,7 +30,7 @@ Table of contents
 
 /* Typography */
 body, ul, li, p, a, label, input, div {
-  font-family: 'Carlito';
+  font-family: Exo, sans-serif;;
   font-size: 18px !important;
   font-weight: 300 !important;
 }
@@ -91,13 +91,7 @@ body, ul, li, p, a, label, input, div {
 
 .carousel-inner .carousel-item {
   position: relative;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
   height: 85vh;
-  align-items: end;
-  text-align: left;
-  color: #FFF;
 }
 
 .carousel-background {
@@ -108,7 +102,7 @@ body, ul, li, p, a, label, input, div {
   right: 0;
   z-index: 0;
   background-size: cover;
-  background-position: center;
+  background-position: 100% 0;
 }
 
 .carousel-overlay {
@@ -135,8 +129,9 @@ body, ul, li, p, a, label, input, div {
   align-items: flex-start;
 }
 
-.carousel-text h1 {
+.carousel-text .h1 {
   margin-left: 15px !important;
+  font-size: 65px !important;
 }
 
 .carousel-text .btn {
@@ -158,20 +153,37 @@ body, ul, li, p, a, label, input, div {
   }
 
   .carousel-text h1 {
-    font-size: 2rem !important; /* Adjust font size for tablets */
-    margin-left: 15px !important;
+    font-size: 1rem !important; /* Adjust font size for tablets */
   }
 
   .carousel-text p {
-    font-size: 1.25rem !important; /* Adjust font size for tablets */
+    font-size: 1rem !important; /* Adjust font size for tablets */
+  }
+
+  .carousel-text .h1 {
+    margin-left: 5px !important;
+    font-size: 34px !important;
+  }
+  
+  .carousel-text .h3 {
+    font-size: 14px !important;
   }
 
   .carousel-text .btn {
     font-size: 1rem !important; /* Adjust font size for tablets */
     padding: 0.5rem 1rem !important;
-    margin-left: 15px !important;
-
   }
+
+  .carousel-background {
+    background-size: cover !important;
+    width: 100% !important;
+  }
+
+  .carousel-inner .carousel-item {
+    height: 40vh !important;
+  }
+
+
 }
 
 @media (max-width: 576px) {
@@ -186,7 +198,7 @@ body, ul, li, p, a, label, input, div {
   }
 
   .carousel-text h1 {
-    font-size: 1.2.5rem !important; /* Adjust font size for smartphones */
+    font-size: 1rem !important; /* Adjust font size for smartphones */
   }
 
   .carousel-text p {

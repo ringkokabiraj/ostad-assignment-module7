@@ -83,11 +83,11 @@
 
   {% for j in catagories %} {% if j|is_category_empty %} {% else %}
   <div class="row mb-5" id="{{j.name}}">
-    <div class="d-flex justify-content-between mb-3">
-      <h4>{{j.name}}</h4>
-      <a href="/lottery/get_category/{{j.id}}/" class="btn btn-capsule"
-        style="background-color: #f2b840; font-weight: bold !important;">View All</a>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="mb-0">{{j.name}}</h4>
+      <a href="/lottery/get_category/{{j.id}}/" class="btn btn-capsule" style="background-color: #f2b840; font-weight: bold !important;">View All</a>
     </div>
+    
 
     {% for i in j|give_me_all_lottery_of_a_category %}
     {% with lottery=i x=1 %}
@@ -317,7 +317,7 @@
         <div class="carousel-overlay"></div>
         <div class="carousel-content">
           <div class="carousel-text">
-            <h1 class="h1" style="text-transform:uppercase; font-family: Exo, sans-serif; font-weight: 900z !important; font-size: 65px !important;">${slide.name}</h1>
+            <h1 class="h1" style="text-transform:uppercase; font-family: Exo, sans-serif; font-weight: 900z !important;">${slide.name}</h1>
             <p class="h3 p-3" style="text-transform: uppercase; font-family: Exo, sans-serif; font-weight: 900 !important; color: #ffc107">${slide.des}</p>
             <a href="/lottery/lottery/${slide.id}/" class="btn btn-warning btn-capsule text-dark" style="font-family: Cantarell; text-transform: uppercase; font-weight: bold !important;">
               Enter <i class="fas fa-ticket fa-fw" style="margin-left: 10px !important;"></i>
