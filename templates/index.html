@@ -10,6 +10,30 @@
   .gold{
     background-color: #f2b840;
   }
+
+
+  @media (max-width: 600px) {
+
+  
+      .position-absolute{
+        position: initial !important;
+        
+      }
+ 
+      .mobile-screen{
+        transform : none !important;
+        border-radius: 0px !important;
+      }
+      .mobile-screen-2{
+        justify-content : left !important;
+        white-space: nowrap;
+      }
+  
+      .carousel-background{
+        background-size: contain;
+        background-position: top;
+      }
+  }
 </style>
 <!-- Modal -->
 <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -49,10 +73,10 @@
 <!-- End Banner Hero -->
 
 <div class="position-relative">
-  <div class="container category-bar position-absolute bg-white py-3 shadow" style="left: 50%; transform: translateX(-50%); bottom: -40px; z-index: 10; border-radius: 15px !important;">
+  <div class="mobile-screen container category-bar position-absolute bg-white py-3 shadow" style="left: 50%; transform: translateX(-50%); bottom: -40px; z-index: 10; border-radius: 15px;">
     <div class="row">
       <div class="col-12">
-        <div class="d-flex justify-content-center overflow-auto">
+        <div class=" mobile-screen-2 d-flex justify-content-center overflow-auto">
           {% for cat in catagories %}
           <a href="#{{cat.name}}" class="btn bg-none mx-2">{{cat.name}}</a>
           {% endfor %}
@@ -316,7 +340,7 @@
       const isActive = index === 0 ? 'active' : ''; // Ensure first slide is active
       const slideContent = `
       <div class="carousel-item ${isActive}">
-        <div style="background-image: url(${slide.image});" class="carousel-background"></div>
+        <div style="background-image: url(${slide.image}); --mob-image: url(${slide.image});" class="carousel-background"></div>
         <div class="carousel-overlay"></div>
         <div class="carousel-content">
           <div class="carousel-text">
