@@ -193,9 +193,7 @@
             <div class="col-md-3 pt-5">
                 <img src="./static/img/logo.png" class="img-fluid w-50 mb-3" alt="" srcset="">
                 <ul class="list-unstyled text-light footer-link-list">
-                        <small class="text-sm">Welcome to Rapid Competitions!
-                            We specialise in sourcing only the finest cars and the best prizes for our competitions.
-                            Don’t forget to follow us on social media to be notified when we go live and for winner updates. Good luck!
+                        <small class="text-sm">Welcome to Rapid Competitions, where every ticket is a chance to win big! From tech gadgets like TVs and speakers to tax free cash prizes, and much more we bring excitement and opportunity to your fingertips. Be the first to know about our latest competitions and winners by following us on social media. Your next big win could be just a click away. Good luck!
                         </small>
                 </ul>
             </div>
@@ -203,11 +201,9 @@
             <div class="col-md-2 pt-5">
                 <h4 class="h6 text-light pb-3 border-light">Competitions</h4>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Cash & Machinary</a></li>
-                    <li><a class="text-decoration-none" href="#">Cash</a></li>
-                    <li><a class="text-decoration-none" href="#">Instant Wins</a></li>
-                    <li><a class="text-decoration-none" href="#">Tech & Luxury</a></li>
-                    <li><a class="text-decoration-none" href="#">Watch Competitions</a></li>
+                    {% for i in 1|get_all_category %}
+                        <li><a class="text-decoration-none" href="/lottery/get_category/{{i.id}}/">{{i.name}}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-md-2 pt-5">
@@ -220,10 +216,8 @@
             <div class="col-md-2 pt-5">
                 <h4 class="h6 text-light pb-3 border-light">Winners</h4>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Winner</a></li>
-                    <li><a class="text-decoration-none" href="#">Draw Result</a></li>
-                    <li><a class="text-decoration-none" href="#">Customer Review</a></li>
-                    <li><a class="text-decoration-none" href="#">Awting Draw</a></li>
+                    <li><a class="text-decoration-none" href="/winners/">Winners</a></li>
+                    <li><a class="text-decoration-none" href="/winners/">Draw Result</a></li>
                 </ul>
             </div>
 
@@ -237,25 +231,9 @@
             <div class="col-auto me-auto">
                 <ul class="list-inline text-left footer-icons">
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                    </li>
-                    <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                    </li>
-                    <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                    </li>
-                    <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        <a class="text-light text-decoration-none" target="_blank" href="https://www.facebook.com/RapidCompetitions"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                     </li>
                 </ul>
-            </div>
-            <div class="col-auto">
-                <label class="sr-only" for="subscribeEmail">Email address</label>
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                    <div class="input-group-text btn-warning text-dark">Subscribe</div>
-                </div>
             </div>
         </div>
     </div>
