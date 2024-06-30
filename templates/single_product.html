@@ -87,7 +87,8 @@
                     <div class="row">
                         <div id="multi-item-example" class="col-12 carousel slide carousel-multi-item" data-bs-ride="carousel">
                             <div class="carousel-inner product-links-wap" role="listbox">
-                                <div class="carousel-item active">
+                                {%if lottery.lotteryimage_set.all|is_lottery_image_set_empty%}
+                                <div class="carousel-item active" >
                                     <div class="row">
 
                                         {% for i in lottery.lotteryimage_set.all %}
@@ -99,6 +100,9 @@
                                         {% endfor %}
                                     </div>
                                 </div>
+                                {%else%}
+
+                                {%endif%}
                             </div>
                         </div>
                     </div>

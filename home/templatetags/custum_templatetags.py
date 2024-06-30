@@ -46,3 +46,7 @@ def get_chckout_instances(value):
 def is_any_saved_checkout(value):
     return Checkout.objects.filter(user=value).exists()
 
+
+@register.filter
+def is_lottery_image_set_empty(value):
+    return value.exists()
