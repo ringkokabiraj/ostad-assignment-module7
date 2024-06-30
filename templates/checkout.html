@@ -426,8 +426,11 @@ input.addEventListener("change", (event) => {
   console.log("Changing");
   if(event.target.value == "true")
   {
-    console.log("Write Ans");
+
     result.value = `true`;
+  }
+  else{
+    result.value = `false`;
   }
   
 })})
