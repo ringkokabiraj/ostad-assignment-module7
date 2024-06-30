@@ -250,7 +250,7 @@
                                 <div class="accordion-body">
                                     <!-- Price Details Content Goes Here -->
                                     <!-- Example: -->
-                                    <p>Price details content...</p>
+                                    <p>{{lottery.price_details}}</p>
                                 </div>
                             </div>
                         </div>
@@ -318,6 +318,7 @@
                 quantityElem.textContent = currentValue - 1;
                 rangeElem.value = currentValue - 1;
             }
+
         }
 
         function handle_plus(lotteryId) {
@@ -325,9 +326,12 @@
             var rangeElem = document.getElementById('ticketRange_' + lotteryId);
             var currentValue = parseInt(quantityElem.textContent);
             var maxTickets = parseInt(rangeElem.max);
+
+
             if (currentValue < maxTickets) {
                 quantityElem.textContent = currentValue + 1;
                 rangeElem.value = currentValue + 1;
+                console.log("rangeElem.value");
             }
         }
 

@@ -1,7 +1,7 @@
 {% load custum_templatetags %}
 <div class="col-md-3 mb-4">
     <div class="card custom-card shadow">
-        <a class="card-title" style="text-decoration: none;" href="/lottery/lottery/{{lottery.id}}/">
+        <a class="card-title" style="text-decoration: none;" href="/competition/competition/{{lottery.id}}/">
             <div class="position-relative">
                 <img class="card-img-top" src={{lottery.image.url}} alt="image">
                 <div data-date="{{ lottery.draw_in|date:'Y-m-d H:i:s' }}" data-timezone="America/New_York" class="draw-date gold rounded-pill">
@@ -10,7 +10,7 @@
             </div>
         </a>
         <div class="card-body p-3 text-center">
-            <a class="card-title" style="text-decoration: none; color: black    ;" href="/lottery/lottery/{{lottery.id}}/">
+            <a class="card-title" style="text-decoration: none; color: black    ;" href="/competition/competition/{{lottery.id}}/">
                 <h6 class="card-title mt-2 h3" style="font-weight: bold !important;">{{lottery.name}}</h6>
                 {% if lottery.cash_alternative %}
                 <p class="mt-2 text-muted"><span style="font-size: 13px;">Cash alternative:</span> <span style="font-weight: bold !important; color: #f2b840;">£{{lottery.cash_alternative}}</span></p>

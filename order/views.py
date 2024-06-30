@@ -3,7 +3,7 @@ import json
 import stripe
 from django.conf import settings
 from django.shortcuts import redirect, render
-
+from django.contrib import messages
 from authentication.models import Checkout, User
 
 from .models import *
@@ -26,6 +26,9 @@ def checkout_view(request):
                 pass
             else:
                 return redirect('/cart/')
+            if data['ques']=="false" :
+                messages.error(request,'Please Answer this question correctly.')
+                return redirect('/checkout/')
             order = Order.objects.create(date_of_birth = data['dob'],first_name = data['firstName'],last_name = data['lastName'],
                                         country = data['country'],street_address=data['address1'],address_line2=data['address2'],
                                         town = data['city'],postcode = data['postcode'], phone=data['phone'],
@@ -45,11 +48,12 @@ def checkout_view(request):
                     order.sign_me_up = True
 
             # Saving The Checkout For Future Use.
-            if data['save_checkout'] =='on':
-                Checkout.objects.create(user = request.user,date_of_birth = data['dob'],first_name = data['firstName'],last_name = data['lastName'],
-                                        country = data['country'],street_address=data['address1'],address_line2=data['address2'],
-                                        town = data['city'],postcode = data['postcode'], phone=data['phone'],
-                                        email=data['email'])
+            if 'save_checkout' in data:
+                if data['save_checkout'] =='on':
+                    Checkout.objects.create(user = request.user,date_of_birth = data['dob'],first_name = data['firstName'],last_name = data['lastName'],
+                                            country = data['country'],street_address=data['address1'],address_line2=data['address2'],
+                                            town = data['city'],postcode = data['postcode'], phone=data['phone'],
+                                            email=data['email'])
         return render(request, 'payment.html',context={'order':order})
     else:
         return redirect('/auth/login')

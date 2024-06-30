@@ -2,10 +2,85 @@
 {% block title %}
 <title>Rapid Competitions</title>
 {% endblock title %} {% block links %} {% endblock links %} {% block content %}
+<style>
+.zapc-global-question-wrap {
+
+	margin-bottom: 30px;
+  border: 1px solid #dee2e6;
+  padding: 20px;
+
+	h3 {
+		border-bottom: 1px solid #dee2e6;
+		padding-bottom: 0.57rem;
+		margin-bottom: 1rem;
+
+	}
+
+	#zapc_question_field {
+		& > label {
+			margin: 0;
+			color: #181818;
+			font-size: 16px !important;
+			font-style: normal;
+			font-weight: 700 !important;
+			line-height: 16px !important;
+
+		}
+	}
+
+
+	.woocommerce-input-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		position: relative;
+
+		label {
+			flex: 0 0 calc(100% - 40px);
+			margin-bottom: 10px;
+
+			&:before {
+				content: "";
+				width: calc(100% + 40px);
+				display: block;
+				background: #dddddd;
+				height: 1px;
+				position: relative;
+				left: -40px;
+				margin-bottom: 10px;
+			}
+
+			&:first-of-type {
+				&:before {
+					background: #ffffff;
+				}
+			}
+		}
+
+		input {
+			flex: 0 0 40px;
+			width: 15px;
+			height: 15px;
+			margin-top: 13px;
+		}
+	}
+  .form-control{
+    -webkit-appearance: auto;
+    border: 1px solid #ced4da !important;
+  }
+}
+
+</style>
 <div class="container mt-5">
   <div class="row flex-column-reverse flex-md-row">
     <h1 class="h1 text-center mb-5 p-2">Checkout</h1>
+    {% if messages %}
+                  
+    {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</p>
+    {% endfor %}
 
+{% endif %}
     <div class="col-xl-6">
       {% if user|is_any_saved_checkout %}
         <div class="card rounded p-3 mb-5" style="background-color: #f4f5f7; border: none">
@@ -30,6 +105,26 @@
 
         </div>
         {% endif %}
+        
+
+        <div class="zapc-global-question-wrap">
+          <h3 class="font-weight-bold">Entry Question</h3>
+          <p>Answer this question correctly to be entered into the live draw.</p>
+          <p class=" -wide form-group validate-required" id="zapc_question_field" data-priority>
+            <label for="zapc_question_answer-1" class>What is the capital of England?&nbsp;<abbr class="required" title="required">*</abbr></label>
+            <span class="woocommerce-input-wrapper">
+              <input type="radio" class="input-radio form-control question" value="false" name="zapc_question" id="zapc_question_answer-1" />
+              <label for="zapc_question_answer-1" class="radio ">Dubai</label>
+              <input type="radio" class="input-radio form-control question" value="false" name="zapc_question" id="zapc_question_answer-2" />
+              <label for="zapc_question_answer-2" class="radio ">Paris</label>
+              <input type="radio" class="input-radio form-control question" value="true" name="zapc_question" id="zapc_question_answer-3" />
+              <label for="zapc_question_answer-3" class="radio ">London</label>
+              <input style="display:none;" class="result" value="false" form="checkout_form" name="ques"> 
+            </span>
+          </p>
+        </div> 
+
+          
       <div
         class="card rounded p-3 mb-5"
         style="background-color: #f4f5f7; border: none"
@@ -318,5 +413,24 @@
 <script>
   var cart = localStorage.getItem("cart");
   document.cookie = "cart=" + cart;
+</script>
+<script>
+
+const selectElement = document.querySelectorAll(".question");
+const result = document.querySelector(".result")
+
+selectElement.forEach(input => {
+input.addEventListener("change", (event) => {
+  
+
+  console.log("Changing");
+  if(event.target.value == "true")
+  {
+    console.log("Write Ans");
+    result.value = `true`;
+  }
+  
+})})
+
 </script>
 {% endblock content %}

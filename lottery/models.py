@@ -38,6 +38,7 @@ class Lottery(models.Model):
     max_entries_per_user = models.IntegerField(default=1)
     draw_by = models.CharField(max_length=20, choices=DRAW_BY, default="AUTO")
     has_perform_draw = models.BooleanField(default=False)
+    price_details = models.TextField(null=True,blank=True)
     def __str__(self) -> str:
         return self.name
     

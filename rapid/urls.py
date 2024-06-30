@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('auth/', include('authentication.urls')),
     path('social-auth/', include('social_django.urls')),
-    path('lottery/', include('lottery.urls')),
+    path('competition/', include('lottery.urls')),
     path('cart/', include('cart.urls')),
     path('checkout/', include('order.urls')),
 

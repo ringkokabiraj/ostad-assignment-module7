@@ -142,7 +142,10 @@
                                 <button type="button" class="btn btn-lg bg-none" id="delete_${data.id}" onclick="handle_delete(${data.id})"><i class="fas fa-trash-alt"></i></button>
                                 <img src="${data.image}" alt="Product Image" class="img-fluid" style="width: 70px; height: 70px; margin-right: 20px; margin-left: 20px;"> 
                                 <div class="">
-                                    <a class="mb-0 h4 text-dark" href="#">${data.name}</a>
+                                    <a class="mb-0 h4 text-dark" href="/competition/competition/${data.id}/">${data.name}</a>
+                                    <p>
+                                        
+                                    </p>
                                 </div>
                             </div>
                         </td>
@@ -200,7 +203,7 @@
         var storedItem = getCartFromLocalStorage();
         const domainWithProtocol = `${window.location.protocol}//${window.location.host}`;
         console.log(domainWithProtocol);
-        const url = 'http://localhost:8000/lottery/get_lottery_info/';
+        const url = `${domainWithProtocol}/competition/get_lottery_info/`;
         const data = {
         'id_list' : storedItem
 

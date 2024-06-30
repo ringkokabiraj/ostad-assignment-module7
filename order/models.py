@@ -35,6 +35,9 @@ class OrderItem(models.Model):
     
 
 class LotteryTicket(models.Model):
+    class Meta:
+        verbose_name = "Competition Ticket"
+        verbose_name_plural = "Competition Tickets"
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lottery = models.ForeignKey(Lottery,on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
