@@ -19,7 +19,8 @@ def home(request):
             'id': item.competition.id,
             'name': item.name,
             'des' : item.description,
-            'image': request.build_absolute_uri(item.image.url) if item.image else None
+            'image': request.build_absolute_uri(item.image.url) if item.image else None,
+            'mobile_image' : request.build_absolute_uri(item.mobile_image.url) if item.image else None
             
         })
     lottery_json = json.dumps(lottery_json)

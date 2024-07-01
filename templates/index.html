@@ -30,9 +30,12 @@
       }
   
       .carousel-background{
+        background-image: var(--mob-image) !important;
         background-size: contain;
         background-position: top;
+        
       }
+
   }
 </style>
 <!-- Modal -->
@@ -340,7 +343,7 @@
       const isActive = index === 0 ? 'active' : ''; // Ensure first slide is active
       const slideContent = `
       <div class="carousel-item ${isActive}">
-        <div style="background-image: url(${slide.image}); --mob-image: url(${slide.image});" class="carousel-background"></div>
+        <div style="background-image: url(${slide.image}); --mob-image: url(${slide.mobile_image});" class="carousel-background"></div>
         <div class="carousel-overlay"></div>
         <div class="carousel-content">
           <div class="carousel-text">
