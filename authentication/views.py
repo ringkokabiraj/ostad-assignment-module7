@@ -91,6 +91,10 @@ def logout_view(request):
     return redirect('/')
 
 
+def account(request):
+    return render(request, 'account.html')
+
+
 # def recent_tickets(request):
 #     context = 
 
