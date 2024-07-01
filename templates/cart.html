@@ -11,6 +11,49 @@
 
 {% block content %}
 
+<style>
+    .p-4{
+        display: none;
+    }
+  @media (max-width: 600px) {
+
+    .table-borderless>:not(caption)>*>* {
+    border-bottom-width: 0;
+    display: block;
+}
+    #tr-1{
+        display: none;
+    }
+    .td-3{
+    display: none !important;
+    }
+    th{
+        display: none !important;
+    }
+    .p-4{
+        display: block;
+        padding-top: 35px !important;
+    }
+    .td-2{
+        display: flex !important;
+        align-items: center;
+    }
+    .td-4{
+        display: none !important;
+    }
+    .input-group{
+        height: 60px;
+    }
+    tr{
+        display: block;
+        margin-top: 10px !important;
+        box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5) !important;
+        margin-bottom: 20px;
+    }
+
+  }
+</style>
+
     <!-- Modal -->
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -137,7 +180,7 @@
         const newRow = document.createElement('tr');
         newRow.setAttribute('id', `tr_${data.id}`);
         newRow.innerHTML = `
-                     <td>
+                     <td class="td-1">
                             <div class="product-info d-flex align-items-center">
                                 <button type="button" class="btn btn-lg bg-none" id="delete_${data.id}" onclick="handle_delete(${data.id})"><i class="fas fa-trash-alt"></i></button>
                                 <img src="${data.image}" alt="Product Image" class="img-fluid" style="width: 70px; height: 70px; margin-right: 20px; margin-left: 20px;"> 
@@ -151,15 +194,17 @@
                         </td>
                         
                         
-                        <td> 
+                        <td class="td-2"> 
                             <div class="input-group" style="border: 1px solid #dee2e6; border-radius: .25rem;">
                                 <button class="btn o-btn-outline-quantity button-minus" type="button" id="minusbtn_${data.id}" onclick="handle_minus(${data.id})"><span class="fa fa-minus"></span></button>
                                 <input type="number" id="quantity_${data.id}" class="input-text qty text form-control text-center" name="quantity" value="${data.quantity}" title="Qty" size="4" min="1" max="" onChange="quantityOnChangeHandler2(${data.id})" step="1" placeholder="" inputmode="numeric" autocomplete="off" data-product_id="3838865">
                                 <button id="plusbtn_${data.id}" class="btn o-btn-outline-quantity button-plus" type="button" onclick="handle_plus(${data.id})"><span class="fa fa-plus"></span></button>
+                            
                             </div>
+                            <p class="p-4">£<span id="td_subtotal${data.id}">${(data.price*data.quantity).toFixed(2)}</span></p>
                         </td>
-                        <td>£<span id="td_price${data.id}">${data.price}</span></td> 
-                        <td>£<span id="td_subtotal${data.id}">${(data.price*data.quantity).toFixed(2)}</span></td>
+                        <td class="td-3">£<span id="td_price${data.id}">${data.price}</span></td> 
+                        <td class="td-4">£<span id="td_subtotal${data.id}">${(data.price*data.quantity).toFixed(2)}</span></td>
         `;
 
 

@@ -36,6 +36,7 @@ class Lottery(models.Model):
     total_available_ticket = models.IntegerField()
     total_sold = models.IntegerField(default=0)
     max_entries_per_user = models.IntegerField(default=1)
+    suggested_ticket_quantity = models.IntegerField(default=1)
     draw_by = models.CharField(max_length=20, choices=DRAW_BY, default="AUTO")
     has_perform_draw = models.BooleanField(default=False)
     price_details = models.TextField(null=True,blank=True)

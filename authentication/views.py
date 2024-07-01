@@ -9,7 +9,7 @@ def login_view(request):
     if request.user.is_authenticated:
         return redirect('/')
     if request.method=="GET":
-        return render(request,'login.html')
+        return render(request,'account.html')
     else:
         email = request.POST['email']
         password = request.POST['password']
@@ -25,17 +25,20 @@ def login_view(request):
 
 def register_view(request):
     if request.method == "GET":
-        return render(request, 'register.html')
+        return render(request, 'account.html')
     
     else:
         email = request.POST['email']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         password = request.POST['password']
+        dob = request.POST['dob']
         user = User.objects.filter(email = email)
         if user.exists():
             messages.error(request,'Email Already Exists.')
             return redirect('/auth/register')
         
-        user = User.objects.create(email=email)
+        user = User.objects.create(email=email, first_name = first_name, last_name=last_name, dob=dob)
         user.set_password(password)
         user.save()
         # except:

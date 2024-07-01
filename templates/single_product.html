@@ -168,7 +168,7 @@
                                                 <input type="hidden" name="product-title" value="Activewear">
                                                 <div class="row mt-4">
                                                     <div class="col">
-                                                        <input type="range" class="form-range custom-range" id="ticketRange_{{lottery.id}}" min="1" max="{{lottery.max_entries_per_user}}" value="1" oninput="updateTicketQuantity({{lottery.id}})">
+                                                        <input type="range" class="form-range custom-range" id="ticketRange_{{lottery.id}}" min="1" max="{{lottery.max_entries_per_user}}" value="{{lottery.suggested_ticket_quantity}}" oninput="updateTicketQuantity({{lottery.id}})">
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-right mt-4">
@@ -177,7 +177,7 @@
                                                     </div>
                                                     <div class="col-4 text-center">
                                                         <ul class="list-inline">
-                                                            <li class="list-inline-item">Number of Tickets <span id="quantity_{{lottery.id}}" style="margin-left: 10px; font-size: 20px;" id="var-value">1</span></li>
+                                                            <li class="list-inline-item">Number of Tickets <span id="quantity_{{lottery.id}}" style="margin-left: 10px; font-size: 20px;" id="var-value">{{lottery.suggested_ticket_quantity}}</span></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-4 text-center">

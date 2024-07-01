@@ -22,7 +22,7 @@
             <div class="card h-100">
                 <div class="card-body d-flex flex-column justify-content-between" style="padding: 30px !important;">
                     <h2 class="card-title mb-4" style="font-weight: bold !important;">Login</h2>
-                    <form action="/auth/login" method="POST" class="mb-auto">
+                    <form action="/auth/login" method="POST" class="mb-auto" id="login-frm">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="email" class="form-label" style="font-weight: 500 !important;">Email *</label>
@@ -40,7 +40,7 @@
                     <div class="mt-auto">
                         <div class="row align-items-center justify-content-between">
                             <div class="col">
-                                <button type="submit" class="btn btn-warning rounded-pill px-5" style="font-weight: bold !important;">Login</button>
+                                <button form="login-frm" type="submit" class="btn btn-warning rounded-pill px-5" style="font-weight: bold !important;">Login</button>
                             </div>
                             <div class="col-auto">
                                 <a href="#" style="font-weight: 400 !important; text-decoration: none; font-size: 18px;">Lost your password?</a>
